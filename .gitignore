@@ -1,0 +1,18 @@
+node_modules
+dist
+site
+.env
+.env.local
+.env.*.local
+*.log
+.vscode
+.DS_Store
+
+# Service Account Keys
+gen-lang-client-*.json
+
+
+# local secrets / session files
+cookies.txt
+*.local
+firebase-debug.log

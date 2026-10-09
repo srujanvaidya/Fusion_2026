@@ -1,0 +1,41 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Users can read and write their own profile document
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Parcels — users can read/write their own
+    match /parcels/{docId} {
+      allow read: if request.auth != null && resource.data.uid == request.auth.uid;
+      allow write: if request.auth != null && request.resource.data.uid == request.auth.uid;
+      allow create: if request.auth != null && request.resource.data.uid == request.auth.uid;
+    }
+
+    // Claims — all authenticated users can read; owner or officers can write
+    match /claims/{docId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null && request.resource.data.uid == request.auth.uid;
+      allow update: if request.auth != null;
+    }
+
+    // Alerts — all authenticated users can read and write
+    match /alerts/{docId} {
+      allow read, write: if request.auth != null;
+    }
+
+    // Field reports — users can read/write their own
+    match /field-reports/{docId} {
+      allow read: if request.auth != null && resource.data.uid == request.auth.uid;
+      allow write: if request.auth != null && request.resource.data.uid == request.auth.uid;
+      allow create: if request.auth != null && request.resource.data.uid == request.auth.uid;
+    }
+
+    // Mutations — all authenticated users can read and write
+    match /mutations/{docId} {
+      allow read, write: if request.auth != null;
+    }
+  }
+}

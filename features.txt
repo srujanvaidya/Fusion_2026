@@ -1,0 +1,71 @@
+Guardian Platform Features & Capabilities Summary
+==============================================
+
+The Guardian platform is designed to revolutionize agriculture through space-grade intelligence and precision technology. We are building this platform to replace outdated manual surveys with real-time, automated data, providing government planners, insurance companies, and authorities with actionable insights for better resource allocation, disaster relief, and financial transparency.
+
+Below is a detailed list of the core features and capabilities we have built:
+
+1. Satellite Imagery & Crop Mapping
+-----------------------------------
+Harnesses multi-spectral and SAR satellite data to generate accurate crop maps across Maharashtra. The system processes optical imagery from Sentinel-2 and Landsat to compute vegetation indices (NDVI, EVI, SAVI).
+* Key Capabilities:
+  - NDVI / EVI Analysis
+  - Crop Classification
+  - Area Estimation
+  - Multi-temporal Tracking
+  - SAR Data Fusion
+  - Historical Comparison
+* Real-Time Crop Mapping: Automatically identifies crop types (wheat, rice, sugarcane, etc.) and generates GIS-based crop distribution maps using Sentinel-2 data.
+
+2. Drone Surveys & Aerial Analytics
+-----------------------------------
+Deploys advanced UAV technology for high-resolution, micro-level crop monitoring and precision agriculture. Provides capabilities that satellites cannot reach.
+* Key Capabilities:
+  - Precision Spraying
+  - Damage Assessment (rapid assessment after natural disasters)
+  - High-res Mapping
+  - Thermal Imaging (for irrigation management)
+  - Pest Detection (via multi-spectral imaging for plant health diagnosis)
+
+3. GIS Mapping & Spatial Intelligence
+-------------------------------------
+Integrates disparate data sources into a unified Geographic Information System (GIS), serving as a robust spatial decision-support system for authorities.
+* Key Capabilities:
+  - Spatial Modeling
+  - Soil Health Mapping
+  - Network Analysis
+  - Land Use Mapping
+  - 3D Visualization
+* GIS Dashboard for Authorities: Interactive map displaying village-level crop distribution, health status, groundwater availability, and disaster zones.
+
+4. Mobile Geo-Tagged Data Collection
+------------------------------------
+Empowers field officers with a custom mobile application for real-time, ground-truthing to validate satellite imagery.
+* Key Capabilities:
+  - Offline Collection
+  - GPS Tagging (captures time-stamped, GPS-verified photos)
+  - Real-time Sync
+  - Audit Trails (ensuring field-level transparency)
+  - Custom Forms
+
+5. Insurance Verification & Subsidy Distribution
+------------------------------------------------
+Revolutionizes agricultural financing by integrating satellite-based loss verification to ensure subsidies reach the right farmers.
+* Key Capabilities:
+  - Claims Processing
+  - Fraud Detection
+  - Direct Subsidies
+  - Automated Verification
+  - Payout Transparency
+* Automated Insurance Verification: Compares before-and-after satellite data to detect crop damage and flood/drought impact. Outputs claim status, affected area, and confidence scores.
+
+6. Yield Forecasting & Disaster Assessment
+------------------------------------------
+Utilizes machine learning models to forecast crop yields with high accuracy before harvest and assess damage post-disaster.
+* Key Capabilities:
+  - Yield Prediction
+  - Disaster Mapping
+  - Risk Assessment
+  - Relief Optimization
+  - Early Warning
+* Rapid Impact Assessment: Enables government agencies to deploy relief resources effectively and minimize economic loss in the wake of natural disasters like droughts or floods.

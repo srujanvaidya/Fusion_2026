@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Get Started — Guardian</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="apple-touch-icon" href="logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0E1712;
+  --card: #16221A;
+  --text: #F2F6F4;
+  --muted: #92A599;
+  --faint: #62776A;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
+  --accent: #F6EE74;
+  --accent-text: #0E1711;
+  --shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.5), 0 0 35px rgba(246, 238, 116, 0.08);
+  --input-bg: rgba(255, 255, 255, 0.04);
+  --danger: #FB7185;
+  --danger-bg: rgba(251, 113, 133, 0.1);
+  --danger-border: rgba(251, 113, 133, 0.25);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Left — modern space aesthetic */
+.panel-left {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(32px, 5vw, 56px);
+  min-height: 100vh;
+}
+.panel-left-bg {
+  position: absolute;
+  inset: 0;
+  background: url('farm.jpg') center / cover no-repeat;
+  opacity: 0.15;
+}
+.panel-left-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, rgba(9, 12, 21, 0.97) 0%, rgba(13, 17, 26, 0.9) 50%, rgba(9, 12, 21, 0.98) 100%);
+}
+.left-content { position: relative; z-index: 1; display: flex; flex-direction: column; min-height: 100%; justify-content: space-between; gap: 32px; }
+.left-wordmark { display: flex; align-items: center; }
+.left-wordmark .brand-logo {
+  height: clamp(40px, 5vw, 52px);
+  width: auto;
+  max-width: min(220px, 50vw);
+  object-fit: contain;
+  object-position: left center;
+}
+.left-copy h2 {
+  font-size: clamp(26px, 3.2vw, 40px);
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 14px;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  max-width: 420px;
+}
+.left-copy p { font-size: 14px; color: var(--muted); line-height: 1.65; max-width: 400px; font-weight: 400; }
+.left-meta { display: flex; flex-wrap: wrap; gap: clamp(24px, 4vw, 40px); }
+.meta-item { display: flex; flex-direction: column; gap: 4px; }
+.meta-value { font-size: 22px; font-weight: 600; letter-spacing: -0.02em; color: var(--text); }
+.meta-label { font-size: 10px; color: var(--faint); text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600; }
+
+/* Right — floating card */
+.panel-right {
+  width: min(480px, 100%);
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(20px, 4vw, 40px);
+  overflow-y: auto;
+}
+.form-inner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  box-shadow: var(--shadow-lg);
+  padding: clamp(32px, 5vw, 44px);
+  margin: auto 0;
+  width: 100%;
+  max-width: 440px;
+}
+.form-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 32px; }
+.form-wordmark { display: flex; align-items: center; min-height: 40px; }
+.form-wordmark .brand-logo {
+  height: clamp(32px, 4vw, 42px);
+  width: auto;
+  max-width: min(180px, 42vw);
+  object-fit: contain;
+  object-position: left center;
+}
+.form-signin { font-size: 13px; color: var(--muted); line-height: 1.4; text-align: right; }
+.form-signin a { color: var(--text); text-decoration: none; font-weight: 600; border-bottom: 1px solid transparent; transition: border-color 0.15s; }
+.form-signin a:hover { border-bottom-color: var(--text); }
+
+.form-heading { font-size: 24px; font-weight: 500; margin-bottom: 6px; letter-spacing: -0.03em; color: var(--text); }
+.form-sub { font-size: 13px; color: var(--muted); margin-bottom: 28px; line-height: 1.5; }
+
+.step-row { display: flex; align-items: center; gap: 10px; margin-bottom: 28px; flex-wrap: wrap; }
+.step-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(0, 0, 0, 0.08); transition: background 0.2s, transform 0.2s; }
+.step-dot.active { background: var(--text); transform: scale(1.1); }
+.step-dot.done { background: var(--accent); }
+.step-text { font-size: 12px; color: var(--faint); margin-left: 2px; font-weight: 500; }
+
+.role-tabs {
+  display: flex;
+  background: var(--input-bg);
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  padding: 4px;
+  gap: 2px;
+  margin-bottom: 8px;
+}
+.role-tab {
+  flex: 1;
+  padding: 10px 8px;
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  text-align: center;
+  border-radius: 24px;
+}
+.role-tab:hover { color: var(--text); }
+.role-tab.active { background: var(--accent); color: var(--accent-text); font-weight: 700; box-shadow: 0 2px 10px rgba(246, 238, 116, 0.25); }
+.role-hint { font-size: 12px; color: var(--faint); margin-bottom: 20px; line-height: 1.45; }
+
+.field { margin-bottom: 16px; }
+.field label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.field input, .field select {
+  width: 100%;
+  padding: 12px 14px;
+  background: var(--input-bg);
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  color: var(--text);
+  font-size: 15px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.field input:focus, .field select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(0, 210, 255, 0.25);
+}
+.field input::placeholder { color: var(--faint); }
+.field input:disabled, .field select:disabled {
+  color: var(--faint);
+  background: rgba(255, 255, 255, 0.02);
+  cursor: not-allowed;
+}
+input:-webkit-autofill, input:-webkit-autofill:focus {
+  transition: background-color 9999s;
+  -webkit-text-fill-color: var(--text) !important;
+}
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.section-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--faint);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin: 22px 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 13px 20px;
+  background: var(--accent);
+  color: var(--accent-text);
+  border: none;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.1s;
+  margin-top: 8px;
+  box-shadow: 0 4px 18px rgba(0, 210, 255, 0.35);
+}
+.btn-primary:hover { opacity: 0.94; transform: translateY(-1px); }
+.btn-primary:active { transform: scale(0.99); }
+.btn-primary:disabled { opacity: 0.45; cursor: not-allowed; box-shadow: none; }
+.btn-back {
+  background: transparent;
+  border: 1px solid var(--border-strong);
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  padding: 13px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+.btn-back:hover { border-color: rgba(255, 255, 255, 0.3); color: var(--text); background: var(--input-bg); }
+.btn-row { display: flex; gap: 12px; margin-top: 8px; align-items: stretch; }
+.btn-row .btn-primary { flex: 1; margin-top: 0; }
+
+.divider { display: flex; align-items: center; gap: 14px; margin: 20px 0; }
+.div-line { flex: 1; height: 1px; background: var(--border); }
+.div-text { font-size: 11px; color: var(--faint); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+
+.btn-google {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-strong);
+  border-radius: 30px;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+.btn-google:hover { border-color: rgba(255, 255, 255, 0.3); color: #fff; background: rgba(255, 255, 255, 0.08); }
+
+.error-box {
+  background: var(--danger-bg);
+  border: 1px solid var(--danger-border);
+  color: var(--danger);
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-size: 13px;
+  margin-bottom: 16px;
+  display: none;
+  line-height: 1.45;
+}
+
+@media (max-width: 900px) {
+  body { flex-direction: column; }
+  .panel-left { min-height: auto; padding: 28px 24px 20px; }
+  .panel-left-bg { opacity: 0.12; }
+  .left-meta { margin-top: 8px; }
+  .panel-right { width: 100%; padding: 16px; }
+  .form-inner { margin: 0; max-width: none; border-radius: 20px 20px 0 0; }
+  /* Hero copy is cramped / clipped on phones; form is the priority */
+  .left-copy { display: none !important; }
+}
+</style>
+</head>
+<body>
+
+<div class="panel-left">
+  <div class="panel-left-bg"></div>
+  <div class="panel-left-shade"></div>
+  <div class="left-content">
+    <div class="left-wordmark"><a href="index.html"><img src="logo.svg" onerror="this.src='logo.png'" alt="Guardian" class="brand-logo" width="200" height="52" decoding="async"></a></div>
+    <div class="left-copy">
+      <h2>AI-powered disaster detection for Indian agriculture</h2>
+      <p>Real-time Sentinel-1 SAR and Sentinel-2 NDVI analysis processed through Google Earth Engine. Built for farmers, officials, and field teams.</p>
+    </div>
+    <div class="left-meta">
+      <div class="meta-item"><span class="meta-value">4,301</span><span class="meta-label">Parcels tracked</span></div>
+      <div class="meta-item"><span class="meta-value">15 days</span><span class="meta-label">Analysis window</span></div>
+      <div class="meta-item"><span class="meta-value">97%</span><span class="meta-label">Accuracy</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="panel-right">
+  <div class="form-inner">
+    <div class="form-top">
+      <div class="form-wordmark"><a href="index.html"><img src="logo.svg" onerror="this.src='logo.png'" alt="Guardian" class="brand-logo" width="180" height="44" decoding="async"></a></div>
+      <div class="form-signin">Already registered? <a href="login.html">Sign in</a></div>
+    </div>
+
+    <h1 class="form-heading">Create your account</h1>
+    <p class="form-sub">Join Guardian to monitor your land with satellite data</p>
+
+    <div class="step-row">
+      <div class="step-dot active" id="dot1"></div>
+      <div class="step-dot" id="dot2"></div>
+      <span class="step-text" id="step-label">Step 1 of 2 — Credentials</span>
+    </div>
+
+    <div id="error-box" class="error-box"></div>
+
+    <!-- Step 1 -->
+    <div id="step1">
+      <div class="field"><label>Role</label>
+        <div class="role-tabs">
+          <button class="role-tab active" onclick="selectRole('farmer',this)" id="role-farmer">Farmer</button>
+          <button class="role-tab" onclick="selectRole('gram_panchayat',this)" id="role-gram_panchayat">Gram Panchayat</button>
+          <button class="role-tab" onclick="selectRole('talathi',this)" id="role-talathi">Talathi</button>
+        </div>
+        <div class="role-hint" id="role-hint">Agricultural land owner or cultivator</div>
+      </div>
+      <div class="field"><label>Email address</label><input type="email" id="email" placeholder="you@example.com" autocomplete="email"></div>
+      <div class="field"><label>Password</label><input type="password" id="password" placeholder="Minimum 6 characters" autocomplete="new-password"></div>
+      <button class="btn-primary" onclick="goStep2()">Continue</button>
+      <div class="divider"><div class="div-line"></div><span class="div-text">or</span><div class="div-line"></div></div>
+      <button class="btn-google" onclick="doGoogle()">
+        <svg width="16" height="16" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        Continue with Google
+      </button>
+    </div>
+
+    <!-- Step 2 -->
+    <div id="step2" style="display:none">
+      <div class="section-label">Personal</div>
+      <div class="grid2">
+        <div class="field"><label>Full name</label><input id="name" placeholder="Ramesh Kadam"></div>
+        <div class="field"><label>Phone</label><input type="tel" id="phone" placeholder="+91 9876543210"></div>
+      </div>
+      <div class="section-label">Location</div>
+      <div class="grid2">
+        <div class="field"><label>State</label><select id="state" onchange="onStateChange(this.value)"><option value="">Select</option></select></div>
+        <div class="field"><label>District</label><select id="district" disabled onchange="onDistrictChange(this.value)"><option value="">Select</option></select></div>
+        <div class="field"><label>Taluka</label><select id="taluka" disabled onchange="onTalukaChange(this.value)"><option value="">Select</option></select></div>
+        <div class="field"><label>Village</label><select id="village" disabled><option value="">Select</option></select></div>
+      </div>
+      <div id="farmer-fields">
+        <div class="section-label">Land details</div>
+        <div class="grid2">
+          <div class="field"><label>Gat number</label><input id="gat" placeholder="e.g. 1234"></div>
+          <div class="field"><label>Plot number</label><input id="plot" placeholder="e.g. A-4"></div>
+        </div>
+      </div>
+      <div id="gp-fields" style="display:none">
+        <div class="section-label">Gram Panchayat details</div>
+        <div class="field"><label>GP name</label><input id="gp-name" placeholder="e.g. Khadakwasla GP"></div>
+        <div class="grid2">
+          <div class="field"><label>Ward / Zone</label><input id="ward" placeholder="Ward 3"></div>
+          <div class="field"><label>Employee ID</label><input id="emp-id" placeholder="GP-2024-001"></div>
+        </div>
+      </div>
+      <div id="talathi-fields" style="display:none">
+        <div class="section-label">Talathi details</div>
+        <div class="grid2">
+          <div class="field"><label>Circle / Mandal</label><input id="circle" placeholder="Haveli Circle"></div>
+          <div class="field"><label>Employee ID</label><input id="tal-emp" placeholder="TAL-2024-001"></div>
+          <div class="field"><label>Badge number</label><input id="badge" placeholder="MH-PUN-T-042"></div>
+        </div>
+      </div>
+      <div class="btn-row">
+        <button class="btn-back" onclick="showStep(1)">Back</button>
+        <button class="btn-primary" id="submit-btn" onclick="doSignup()">Create account</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, updateProfile } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+import { getFirestore, doc, setDoc, getDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+const app = initializeApp({apiKey:"AIzaSyC85U4ZDm9zYGDKqmjmKTV7OvUudyANWQY",authDomain:"skycrop-77a29.firebaseapp.com",projectId:"skycrop-77a29",storageBucket:"skycrop-77a29.appspot.com",messagingSenderId:"622739856326",appId:"1:622739856326:web:890ec5758fa73ebefc70c7"});
+const auth = getAuth(app), db = getFirestore(app), gp = new GoogleAuthProvider();
+
+const STATES = ["Maharashtra","Gujarat","Karnataka","Madhya Pradesh","Goa","Andhra Pradesh","Telangana","Rajasthan","Uttar Pradesh","Bihar","Tamil Nadu","West Bengal","Kerala","Punjab","Haryana","Delhi"];
+const DISTRICTS = {"Maharashtra":["Pune","Nashik","Kolhapur","Solapur","Aurangabad","Ahmednagar","Nagpur","Latur","Sangli","Satara","Jalgaon","Akola","Amravati","Yavatmal","Nanded","Beed","Wardha","Buldhana","Dhule","Thane","Raigad","Ratnagiri","Sindhudurg","Palghar","Osmanabad","Parbhani","Hingoli","Jalna","Nandurbar","Gadchiroli","Chandrapur","Gondia","Bhandara","Washim"],"Gujarat":["Ahmedabad","Surat","Vadodara","Rajkot","Bhavnagar","Jamnagar","Gandhinagar","Kutch","Anand","Mehsana"],"Karnataka":["Bengaluru Urban","Mysuru","Belagavi","Hubballi-Dharwad","Mangaluru","Kalaburagi","Ballari","Vijayapura","Tumakuru","Shivamogga"],"Delhi":["Central Delhi","East Delhi","New Delhi","North Delhi","South Delhi","West Delhi"],"Tamil Nadu":["Chennai","Coimbatore","Madurai","Tiruchirappalli","Salem","Tirunelveli","Vellore","Erode","Thanjavur","Dindigul"],"Telangana":["Hyderabad","Rangareddy","Warangal","Nizamabad","Karimnagar","Khammam","Nalgonda","Mahbubnagar","Adilabad"]};
+const TALUKAS = {"Pune":["Ambegaon","Baramati","Bhor","Daund","Haveli","Indapur","Junnar","Khed","Maval","Mulshi","Purandar","Shirur","Velhe"],"Nashik":["Baglan","Chandwad","Dindori","Igatpuri","Malegaon","Nashik","Niphad","Sinnar","Trimbakeshwar","Yeola"],"Nagpur":["Hingna","Kalmeshwar","Kamptee","Katol","Nagpur Rural","Nagpur Urban","Narkhed","Ramtek","Savner","Umred"],"Satara":["Jaoli","Karad","Khandala","Khatav","Koregaon","Mahabaleshwar","Man","Patan","Phaltan","Satara","Wai"],"Kolhapur":["Ajra","Bavda","Bhudargad","Chandgad","Gadhinglaj","Hatkanangle","Kagal","Karvir","Panhala","Radhanagari","Shahuwadi","Shirol"]};
+const ROLE_HINTS = {farmer:"Agricultural land owner or cultivator", gram_panchayat:"Local self-governance body member", talathi:"Revenue and land records official"};
+
+let globalVillageData = null;
+fetch('/dashboard/dist/assets/json/maharashtra_full.json')
+  .then(res => res.json())
+  .then(data => { globalVillageData = data; console.log("Loaded full villages database."); })
+  .catch(e => console.error("Could not load villages:", e));
+
+const stateEl = document.getElementById('state');
+STATES.forEach(s => { const o = document.createElement('option'); o.value = s; o.textContent = s; stateEl.appendChild(o); });
+
+window.selectedRole = 'farmer';
+window.selectRole = function(role, el) {
+  window.selectedRole = role;
+  document.querySelectorAll('.role-tab').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('role-hint').textContent = ROLE_HINTS[role];
+  document.getElementById('farmer-fields').style.display = role === 'farmer' ? 'block' : 'none';
+  document.getElementById('gp-fields').style.display = role === 'gram_panchayat' ? 'block' : 'none';
+  document.getElementById('talathi-fields').style.display = role === 'talathi' ? 'block' : 'none';
+};
+
+window.onStateChange = function(val) {
+  const d = document.getElementById('district'), t = document.getElementById('taluka');
+  d.innerHTML = '<option value="">Select</option>'; t.innerHTML = '<option value="">Select</option>';
+  d.disabled = true; t.disabled = true;
+  if (DISTRICTS[val]) { DISTRICTS[val].forEach(x => { const o = document.createElement('option'); o.value = x; o.textContent = x; d.appendChild(o); }); d.disabled = false; }
+};
+window.onDistrictChange = function(val) {
+  const t = document.getElementById('taluka'), v = document.getElementById('village');
+  t.innerHTML = '<option value="">Select</option>'; v.innerHTML = '<option value="">Select</option>';
+  t.disabled = true; v.disabled = true;
+  
+  const distKey = val === 'Ahmednagar' ? 'Ahmadnagar' : val;
+  if (globalVillageData && globalVillageData[distKey]) {
+      const talukas = Object.keys(globalVillageData[distKey]).sort();
+      talukas.forEach(x => { const o = document.createElement('option'); o.value = x; o.textContent = x; t.appendChild(o); });
+      t.disabled = false;
+  } else if (TALUKAS[val]) { 
+      TALUKAS[val].forEach(x => { const o = document.createElement('option'); o.value = x; o.textContent = x; t.appendChild(o); }); 
+      t.disabled = false; 
+  }
+};
+
+window.onTalukaChange = function(val) {
+  const v = document.getElementById('village');
+  v.innerHTML = '<option value="">Select</option>';
+  v.disabled = true;
+  
+  const dist = document.getElementById('district').value;
+  const distKey = dist === 'Ahmednagar' ? 'Ahmadnagar' : dist;
+  
+  if (globalVillageData && globalVillageData[distKey] && globalVillageData[distKey][val]) {
+    const villages = globalVillageData[distKey][val].sort();
+    villages.forEach(x => {
+      const o = document.createElement('option');
+      o.value = x;
+      o.textContent = x;
+      v.appendChild(o);
+    });
+    v.disabled = false;
+  } else {
+    // Fallback if not loaded or missing
+    v.innerHTML = '<option value="">Villages of ' + val + '</option>';
+    v.disabled = false;
+  }
+};
+window.showStep = function(n) {
+  document.getElementById('step1').style.display = n === 1 ? 'block' : 'none';
+  document.getElementById('step2').style.display = n === 2 ? 'block' : 'none';
+  document.getElementById('dot1').className = 'step-dot' + (n === 1 ? ' active' : ' done');
+  document.getElementById('dot2').className = 'step-dot' + (n === 2 ? ' active' : '');
+  document.getElementById('step-label').textContent = n === 1 ? 'Step 1 of 2 — Credentials' : 'Step 2 of 2 — Profile';
+};
+function showError(msg) { const e = document.getElementById('error-box'); e.textContent = msg; e.style.display = 'block'; setTimeout(() => e.style.display = 'none', 5000); }
+function val(id) { return (document.getElementById(id)?.value || '').trim(); }
+
+window.goStep2 = function() {
+  if (!val('email')) return showError('Email is required.');
+  if (document.getElementById('password').value.length < 6) return showError('Password must be at least 6 characters.');
+  showStep(2);
+};
+async function saveAndRedirect(user) {
+  const base = { name: val('name'), phone: val('phone'), state: val('state'), district: val('district'), taluka: val('taluka'), village: val('village'), role: window.selectedRole, email: user.email, myGats: [], createdAt: serverTimestamp() };
+  if (window.selectedRole === 'farmer') { base.gatNumber = val('gat'); base.plotNumber = val('plot'); }
+  else if (window.selectedRole === 'gram_panchayat') { base.gramPanchayatName = val('gp-name'); base.ward = val('ward'); base.employeeId = val('emp-id'); }
+  else { base.circle = val('circle'); base.employeeId = val('tal-emp'); base.badgeNumber = val('badge'); }
+  await setDoc(doc(db, 'users', user.uid), base, { merge: true });
+  window.location.href = '/dashboard/dist/index.html';
+}
+window.doSignup = async function() {
+  if (!val('name')) return showError('Full name is required.');
+  const btn = document.getElementById('submit-btn');
+  btn.disabled = true; btn.textContent = 'Creating account...';
+  try {
+    const cred = await createUserWithEmailAndPassword(auth, val('email'), document.getElementById('password').value);
+    if (val('name')) await updateProfile(cred.user, { displayName: val('name') });
+    await saveAndRedirect(cred.user);
+  } catch(e) {
+    const msgs = {'auth/email-already-in-use':'Email already registered.','auth/weak-password':'Password must be 6+ characters.','auth/invalid-email':'Invalid email address.'};
+    showError(msgs[e.code] || e.message);
+    btn.disabled = false; btn.textContent = 'Create account';
+  }
+};
+window.doGoogle = async function() {
+  try {
+    const result = await signInWithPopup(auth, gp);
+    const snap = await getDoc(doc(db, 'users', result.user.uid));
+    if (snap.exists()) { window.location.href = '/dashboard/dist/index.html'; return; }
+    document.getElementById('name').value = result.user.displayName || '';
+    showStep(2);
+    window.doSignup = async function() {
+      if (!val('name')) return showError('Full name is required.');
+      const btn = document.getElementById('submit-btn'); btn.disabled = true; btn.textContent = 'Saving...';
+      try { await saveAndRedirect(result.user); } catch(e) { showError(e.message); btn.disabled = false; btn.textContent = 'Save & continue'; }
+    };
+    document.getElementById('submit-btn').textContent = 'Save & continue';
+  } catch(e) { if (e.code !== 'auth/popup-closed-by-user') showError('Google sign-in failed.'); }
+};
+</script>
+</body>
+</html>

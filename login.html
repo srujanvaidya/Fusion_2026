@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sign In — Guardian</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="apple-touch-icon" href="logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0E1712;
+  --card: #16221A;
+  --text: #F2F6F4;
+  --muted: #92A599;
+  --faint: #62776A;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
+  --accent: #F6EE74;
+  --accent-text: #0E1711;
+  --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.5), 0 0 35px rgba(246, 238, 116, 0.08);
+  --input-bg: rgba(255, 255, 255, 0.04);
+  --danger: #FB7185;
+  --danger-bg: rgba(251, 113, 133, 0.1);
+  --danger-border: rgba(251, 113, 133, 0.25);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+.panel-left {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(32px, 5vw, 56px);
+  min-height: 100vh;
+}
+.panel-left-bg {
+  position: absolute;
+  inset: 0;
+  background: url('farm.jpg') center / cover no-repeat;
+  opacity: 0.15;
+}
+.panel-left-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, rgba(9, 12, 21, 0.97) 0%, rgba(13, 17, 26, 0.9) 50%, rgba(9, 12, 21, 0.98) 100%);
+}
+.panel-left-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  justify-content: space-between;
+  gap: 32px;
+}
+.left-logo { display: flex; align-items: center; }
+.left-logo .brand-logo {
+  height: clamp(40px, 5vw, 52px);
+  width: auto;
+  max-width: min(220px, 50vw);
+  object-fit: contain;
+  object-position: left center;
+}
+.form-header .brand-logo {
+  height: clamp(34px, 4.5vw, 44px);
+  width: auto;
+  max-width: min(200px, 55vw);
+  object-fit: contain;
+  display: block;
+  margin-bottom: 20px;
+}
+.left-quote blockquote {
+  font-size: clamp(24px, 2.8vw, 36px);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--text);
+  margin-bottom: 14px;
+  letter-spacing: -0.03em;
+  max-width: 420px;
+}
+.left-quote cite { font-style: normal; font-size: 14px; color: var(--muted); line-height: 1.6; }
+.left-stats { display: flex; flex-wrap: wrap; gap: clamp(24px, 4vw, 40px); }
+.stat-item { display: flex; flex-direction: column; gap: 4px; }
+.stat-value { font-size: 22px; font-weight: 600; letter-spacing: -0.02em; color: var(--text); }
+.stat-label { font-size: 10px; color: var(--faint); letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; }
+.panel-right {
+  width: min(480px, 100%);
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(20px, 4vw, 40px);
+}
+.form-wrap {
+  width: 100%;
+  max-width: 440px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  box-shadow: var(--shadow-lg);
+  padding: clamp(32px, 5vw, 44px);
+}
+.form-header { margin-bottom: 28px; }
+.form-title { font-size: 24px; font-weight: 500; color: var(--text); margin-bottom: 6px; letter-spacing: -0.03em; }
+.form-subtitle { font-size: 13px; color: var(--muted); line-height: 1.5; }
+.field { margin-bottom: 16px; }
+.field label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: 8px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.field input {
+  width: 100%;
+  padding: 12px 14px;
+  background: var(--input-bg);
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  color: var(--text);
+  font-size: 15px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.field input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(246, 238, 116, 0.25);
+}
+.field input::placeholder { color: var(--faint); }
+input:-webkit-autofill, input:-webkit-autofill:focus {
+  transition: background-color 9999s;
+  -webkit-text-fill-color: var(--text) !important;
+}
+.btn-primary {
+  width: 100%;
+  padding: 13px 20px;
+  background: var(--accent);
+  color: var(--accent-text);
+  border: none;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.1s;
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 18px rgba(0, 210, 255, 0.35);
+}
+.btn-primary:hover { opacity: 0.94; transform: translateY(-1px); }
+.btn-primary:active { transform: scale(0.99); }
+.btn-primary:disabled { opacity: 0.45; cursor: not-allowed; box-shadow: none; }
+.spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(17, 17, 17, 0.2);
+  border-top-color: #090C15;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  display: none;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.divider { display: flex; align-items: center; gap: 14px; margin: 22px 0; }
+.divider-line { flex: 1; height: 1px; background: var(--border); }
+.divider-text { font-size: 11px; color: var(--faint); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+.btn-google {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-strong);
+  border-radius: 30px;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+.btn-google:hover { border-color: rgba(255, 255, 255, 0.3); color: #fff; background: rgba(255, 255, 255, 0.08); }
+.error-msg {
+  background: var(--danger-bg);
+  border: 1px solid var(--danger-border);
+  color: var(--danger);
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-size: 13px;
+  margin-bottom: 16px;
+  display: none;
+  line-height: 1.45;
+}
+.form-footer { text-align: center; margin-top: 26px; font-size: 13px; color: var(--muted); }
+.form-footer a { color: var(--text); text-decoration: none; font-weight: 600; border-bottom: 1px solid transparent; transition: border-color 0.15s; }
+.form-footer a:hover { border-bottom-color: var(--text); }
+.auth-tabs {
+  display: flex;
+  background: var(--input-bg);
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  padding: 4px;
+  gap: 2px;
+  margin-bottom: 24px;
+}
+.auth-tab {
+  flex: 1;
+  padding: 10px 8px;
+  background: transparent;
+  color: var(--muted);
+  border: none;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-radius: 24px;
+}
+.auth-tab.active { background: var(--accent); color: #090C15; font-weight: 700; box-shadow: 0 2px 12px rgba(0, 210, 255, 0.35); }
+.auth-tab:hover:not(.active) { color: var(--text); }
+#otp-step { display: none; }
+.phone-note { font-size: 12px; color: var(--faint); margin-top: 8px; line-height: 1.5; }
+.link-muted {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  background: transparent;
+  color: var(--muted);
+  border: none;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: color 0.15s, background 0.15s;
+}
+.link-muted:hover { color: var(--text); background: var(--input-bg); }
+@media (max-width: 720px) {
+  body {
+    flex-direction: column;
+    background-image: linear-gradient(145deg, rgba(9, 12, 21, 0.96) 0%, rgba(13, 17, 26, 0.92) 100%), url('farm.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+  .panel-left { display: none; }
+  .panel-right { width: 100%; padding: 16px; }
+  .form-wrap { border-radius: 20px 20px 0 0; max-width: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- reCAPTCHA anchor — always in DOM at top level, never hidden -->
+<div id="recaptcha-container" style="position:absolute;opacity:0;pointer-events:none;"></div>
+
+<div class="panel-left">
+  <div class="panel-left-bg"></div>
+  <div class="panel-left-gradient"></div>
+  <div class="panel-left-content">
+    <div class="left-logo"><a href="index.html"><img src="logo.svg" onerror="this.src='logo.png'" alt="Guardian" class="brand-logo" width="200" height="52" decoding="async"></a></div>
+    <div class="left-quote">
+      <blockquote>Satellite intelligence for every farmer in India.</blockquote>
+      <cite>Real-time NDVI &amp; SAR analysis · Maharashtra land records</cite>
+    </div>
+    <div class="left-stats">
+      <div class="stat-item"><span class="stat-value">4,301</span><span class="stat-label">Parcels monitored</span></div>
+      <div class="stat-item"><span class="stat-value">15-day</span><span class="stat-label">Live analysis window</span></div>
+      <div class="stat-item"><span class="stat-value">97%</span><span class="stat-label">Detection accuracy</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="panel-right">
+  <div class="form-wrap">
+    <div class="form-header">
+      <a href="index.html" style="display:inline-block;"><img src="logo.svg" onerror="this.src='logo.png'" alt="Guardian" class="brand-logo" width="180" height="44" decoding="async"></a>
+      <h1 class="form-title">Welcome back</h1>
+      <p class="form-subtitle">Sign in to your Guardian account</p>
+    </div>
+
+    <div class="auth-tabs">
+      <button class="auth-tab active" id="tab-email" onclick="window.switchTab('email')">Email</button>
+      <button class="auth-tab" id="tab-phone" onclick="window.switchTab('phone')">Phone OTP</button>
+    </div>
+
+    <div id="error-msg" class="error-msg"></div>
+
+    <!-- Email -->
+    <form id="login-form">
+      <div class="field">
+        <label for="email">Email address</label>
+        <input type="email" id="email" placeholder="name@example.com" required autocomplete="email">
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Your password" required autocomplete="current-password">
+      </div>
+      <button type="submit" id="submit-btn" class="btn-primary">
+        <span class="spinner" id="spinner"></span>
+        <span id="btn-text">Sign in</span>
+      </button>
+    </form>
+
+    <!-- Phone OTP -->
+    <div id="phone-form" style="display:none;">
+      <div id="phone-step">
+        <div class="field">
+          <label for="phone">Mobile number</label>
+          <input type="tel" id="phone" placeholder="+19767259099" autocomplete="tel">
+          <p class="phone-note">Include country code — e.g. +1 for US, +91 for India</p>
+        </div>
+        <button id="send-otp-btn" class="btn-primary" onclick="window.sendOTP()">
+          <span class="spinner" id="otp-spinner"></span>
+          <span id="send-otp-text">Send OTP</span>
+        </button>
+      </div>
+      <div id="otp-step">
+        <div class="field">
+          <label for="otp">One-time code</label>
+          <input type="text" id="otp" placeholder="6-digit code" maxlength="6" autocomplete="one-time-code" inputmode="numeric">
+          <p class="phone-note" id="otp-sent-to"></p>
+        </div>
+        <button class="btn-primary" onclick="window.verifyOTP()">
+          <span class="spinner" id="verify-spinner"></span>
+          <span id="verify-text">Verify &amp; Sign in</span>
+        </button>
+        <button type="button" class="link-muted" onclick="window.resetPhoneStep()">Use a different number</button>
+      </div>
+    </div>
+
+    <div class="divider"><div class="divider-line"></div><span class="divider-text">or</span><div class="divider-line"></div></div>
+
+    <button id="google-btn" class="btn-google">
+      <svg width="16" height="16" viewBox="0 0 24 24">
+        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+      </svg>
+      Continue with Google
+    </button>
+
+    <div class="form-footer">Don't have an account? <a href="get-started.html">Create one</a></div>
+  </div>
+</div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword,
+         RecaptchaVerifier, signInWithPhoneNumber } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+const app = initializeApp({
+  apiKey: "AIzaSyC85U4ZDm9zYGDKqmjmKTV7OvUudyANWQY",
+  authDomain: "skycrop-77a29.firebaseapp.com",
+  projectId: "skycrop-77a29",
+  storageBucket: "skycrop-77a29.appspot.com",
+  messagingSenderId: "622739856326",
+  appId: "1:622739856326:web:890ec5758fa73ebefc70c7"
+});
+
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
+// Bypass reCAPTCHA challenge — works with Firebase test phone numbers
+auth.settings.appVerificationDisabledForTesting = true;
+
+let confirmationResult = null;
+
+function showError(msg) {
+  const el = document.getElementById('error-msg');
+  el.textContent = msg; el.style.display = 'block';
+  setTimeout(() => el.style.display = 'none', 7000);
+}
+function redirect() { window.location.href = '/dashboard/dist/index.html'; }
+
+// ── switchTab MUST be on window before anything else ─────────────────────────
+window.switchTab = function(tab) {
+  const email = tab === 'email';
+  document.getElementById('tab-email').classList.toggle('active', email);
+  document.getElementById('tab-phone').classList.toggle('active', !email);
+  document.getElementById('login-form').style.display  = email ? 'block' : 'none';
+  document.getElementById('phone-form').style.display  = email ? 'none'  : 'block';
+};
+window.switchTab('email');
+
+// ── sendOTP — verifier created lazily here, not at page load ─────────────────
+window.sendOTP = async function() {
+  const phone = document.getElementById('phone').value.trim();
+  if (!phone) { showError('Enter your phone number with country code.'); return; }
+  const btn = document.getElementById('send-otp-btn');
+  const sp  = document.getElementById('otp-spinner');
+  const tx  = document.getElementById('send-otp-text');
+  btn.disabled = true; sp.style.display = 'block'; tx.textContent = 'Sending...';
+  try {
+    if (!window._appVerifier) {
+      window._appVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', { size: 'invisible' });
+    }
+    confirmationResult = await signInWithPhoneNumber(auth, phone, window._appVerifier);
+    document.getElementById('phone-step').style.display = 'none';
+    document.getElementById('otp-step').style.display   = 'block';
+    document.getElementById('otp-sent-to').textContent  = 'Code sent to ' + phone;
+  } catch (err) {
+    if (window._appVerifier) { try { window._appVerifier.clear(); } catch(_){} window._appVerifier = null; }
+    const msgs = {
+      'auth/invalid-phone-number':  'Invalid number. Try +19767259099',
+      'auth/too-many-requests':     'Too many attempts. Wait a few minutes.',
+      'auth/operation-not-allowed': 'Phone auth not enabled in Firebase Console.',
+      'auth/unauthorized-domain':   'Add "localhost" in Firebase → Auth → Settings → Authorized domains.',
+    };
+    showError(msgs[err.code] || err.code + ': ' + err.message);
+  } finally {
+    btn.disabled = false; sp.style.display = 'none'; tx.textContent = 'Send OTP';
+  }
+};
+
+window.verifyOTP = async function() {
+  if (!confirmationResult) { showError('Request a code first.'); return; }
+  const code = document.getElementById('otp').value.trim();
+  if (code.length < 4) { showError('Enter the OTP code.'); return; }
+  const sp = document.getElementById('verify-spinner');
+  const tx = document.getElementById('verify-text');
+  sp.style.display = 'block'; tx.textContent = 'Verifying...';
+  try {
+    await confirmationResult.confirm(code);
+    redirect();
+  } catch (err) {
+    showError(err.code === 'auth/invalid-verification-code' ? 'Wrong code. Try again.' : 'Failed: ' + err.code);
+  } finally {
+    sp.style.display = 'none'; tx.textContent = 'Verify & Sign in';
+  }
+};
+
+window.resetPhoneStep = function() {
+  confirmationResult = null;
+  document.getElementById('phone').value = '';
+  document.getElementById('otp').value   = '';
+  document.getElementById('phone-step').style.display = 'block';
+  document.getElementById('otp-step').style.display   = 'none';
+};
+
+// ── Email / Password ──────────────────────────────────────────────────────────
+document.getElementById('login-form').addEventListener('submit', async e => {
+  e.preventDefault();
+  const btn = document.getElementById('submit-btn');
+  const sp  = document.getElementById('spinner');
+  const tx  = document.getElementById('btn-text');
+  btn.disabled = true; sp.style.display = 'block'; tx.textContent = 'Signing in...';
+  try {
+    await signInWithEmailAndPassword(auth,
+      document.getElementById('email').value,
+      document.getElementById('password').value);
+    redirect();
+  } catch (err) {
+    const msgs = {
+      'auth/invalid-credential': 'Invalid email or password.',
+      'auth/user-not-found': 'No account with that email.',
+      'auth/wrong-password': 'Incorrect password.',
+      'auth/too-many-requests': 'Too many attempts. Try again later.'
+    };
+    showError(msgs[err.code] || 'Sign in failed.');
+  } finally {
+    btn.disabled = false; sp.style.display = 'none'; tx.textContent = 'Sign in';
+  }
+});
+
+// ── Google ────────────────────────────────────────────────────────────────────
+document.getElementById('google-btn').addEventListener('click', async () => {
+  try { await signInWithPopup(auth, provider); redirect(); }
+  catch (err) { if (err.code !== 'auth/popup-closed-by-user') showError('Google sign-in failed.'); }
+});
+</script>
+</body>
+</html>

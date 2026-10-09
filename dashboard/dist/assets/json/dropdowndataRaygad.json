@@ -1,0 +1,2649 @@
+[
+    [
+        {
+            "code": "06",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "अलिबाग"
+        },
+        {
+            "code": "01",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "उरण"
+        },
+        {
+            "code": "03",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "कर्जत"
+        },
+        {
+            "code": "04",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "खालापुर"
+        },
+        {
+            "code": "11",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "तळा"
+        },
+        {
+            "code": "02",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "पनवेल"
+        },
+        {
+            "code": "05",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "पेण"
+        },
+        {
+            "code": "15",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "पोलादपुर"
+        },
+        {
+            "code": "14",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "महाड"
+        },
+        {
+            "code": "10",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "माणगाव"
+        },
+        {
+            "code": "07",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "मुरुड"
+        },
+        {
+            "code": "13",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "म्हसाळा"
+        },
+        {
+            "code": "08",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "रोहा"
+        },
+        {
+            "code": "12",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "श्रीवर्धन"
+        },
+        {
+            "code": "09",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "सुधागड"
+        }
+    ],
+    [
+        {
+            "code": "272400064241400000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "अलिबाग"
+        },
+        {
+            "code": "272400060290290000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "आक्षी"
+        },
+        {
+            "code": "272400060290690000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "आगरकोट"
+        },
+        {
+            "code": "272400060289000000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "आगरसुरे"
+        },
+        {
+            "code": "272400060288890000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "आवास"
+        },
+        {
+            "code": "272400060290220000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "आवेटी"
+        },
+        {
+            "code": "272400060290520000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "आंदोशी"
+        },
+        {
+            "code": "272400060289620000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "आंबेघर"
+        },
+        {
+            "code": "272400060289910000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "आंबेपूर"
+        },
+        {
+            "code": "272400060288890003",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "इंद्रपै"
+        },
+        {
+            "code": "272400060290740000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "उमटे"
+        },
+        {
+            "code": "272400060290480000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "उसर"
+        },
+        {
+            "code": "272400060288930000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "कनकेश्वर"
+        },
+        {
+            "code": "272400060289970000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "काचळी"
+        },
+        {
+            "code": "272400060290020001",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "कातळपाडा"
+        },
+        {
+            "code": "272400060289320000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "कामार्ले"
+        },
+        {
+            "code": "272400060289550000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "कार्ले"
+        },
+        {
+            "code": "272400060289950000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "कालवडखार"
+        },
+        {
+            "code": "272400060290852200",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "काळोशी"
+        },
+        {
+            "code": "272400060288830000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "कावाडे"
+        },
+        {
+            "code": "272400060290340000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "कावीर"
+        },
+        {
+            "code": "272400060290852300",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "कांडवीरा"
+        },
+        {
+            "code": "272400060289020000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "किहिम"
+        },
+        {
+            "code": "272400060290470000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "कुणे"
+        },
+        {
+            "code": "272400060290820000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "कुदे"
+        },
+        {
+            "code": "272400060289600000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "कुरकुंडी कोलटेंभी"
+        },
+        {
+            "code": "272400060290270000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "कुरुळ"
+        },
+        {
+            "code": "272400060290150000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "कुर्डुस"
+        },
+        {
+            "code": "272400060290020000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "कूसुंबळे"
+        },
+        {
+            "code": "272400060289250001",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "केतकीचामळा"
+        },
+        {
+            "code": "272400060289430000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "कोपर"
+        },
+        {
+            "code": "272400060290110000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "कोपरी"
+        },
+        {
+            "code": "272400060288750000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "कोप्रोली"
+        },
+        {
+            "code": "272400060288720000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "कोळगांव"
+        },
+        {
+            "code": "272400060290170000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "कोळघर"
+        },
+        {
+            "code": "272400060290030000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "खातविरा"
+        },
+        {
+            "code": "272400060290460000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "खानाव"
+        },
+        {
+            "code": "272400060289240000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "खार पेढांबे"
+        },
+        {
+            "code": "272400060288730000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "खांदेरी"
+        },
+        {
+            "code": "272400060289420000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "खिडकी"
+        },
+        {
+            "code": "272400060289370000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "खोपणेखार"
+        },
+        {
+            "code": "272400060289660000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "खंडाळे"
+        },
+        {
+            "code": "272400060290852500",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "गवळी कोठा"
+        },
+        {
+            "code": "272400060289470000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "गाण तर्फे परहुर"
+        },
+        {
+            "code": "272400060289580000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "गाण तर्फे श्रीगांव"
+        },
+        {
+            "code": "272400060290852400",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "गांवखार"
+        },
+        {
+            "code": "272400060289050000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "गुंजीस"
+        },
+        {
+            "code": "272400060290350000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "गोठी"
+        },
+        {
+            "code": "272400060289480000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "गोठेघर"
+        },
+        {
+            "code": "272400060290852600",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "गोपचरी"
+        },
+        {
+            "code": "272400060289690000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "गोंधळपाडा"
+        },
+        {
+            "code": "272400060289810000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "घसवड"
+        },
+        {
+            "code": "272400060290490000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "घोटवडे"
+        },
+        {
+            "code": "272400060289410000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "चरी"
+        },
+        {
+            "code": "272400060290000000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "चिखली"
+        },
+        {
+            "code": "272400060289200000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "चिंचवली"
+        },
+        {
+            "code": "272400060290610000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "चिंचोटी"
+        },
+        {
+            "code": "272400060290260000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "चेंढरे"
+        },
+        {
+            "code": "272400060290600000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "चौल"
+        },
+        {
+            "code": "272400060288940000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "जांभुळपाडा"
+        },
+        {
+            "code": "272400060290850300",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "जुईगवळी"
+        },
+        {
+            "code": "272400060290850400",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "जुईबापुजी"
+        },
+        {
+            "code": "272400060288910000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "झिराड"
+        },
+        {
+            "code": "272400060290550000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "डावाले"
+        },
+        {
+            "code": "272400060290310000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "ढवर"
+        },
+        {
+            "code": "272400060289300000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "तलवडे"
+        },
+        {
+            "code": "272400060289780000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "तळबंद"
+        },
+        {
+            "code": "272400060290800000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "तळवली तर्फे उमटे"
+        },
+        {
+            "code": "272400060289650000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "तळवली तर्फे खंडाळे"
+        },
+        {
+            "code": "272400060289820000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "तळाणीखार"
+        },
+        {
+            "code": "272400060290080000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "तळाशेत"
+        },
+        {
+            "code": "272400060290780000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "ताजपुर"
+        },
+        {
+            "code": "272400060290070000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "ताडवागळे"
+        },
+        {
+            "code": "272400060290852000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "ताडाचा कोठा"
+        },
+        {
+            "code": "272400060289080000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "तुडाळ"
+        },
+        {
+            "code": "272400060289110000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "थळ"
+        },
+        {
+            "code": "272400060290180000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "दळवी खरोशी"
+        },
+        {
+            "code": "272400060289760000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "दिवलांग"
+        },
+        {
+            "code": "272400060290680000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "दिवीपारंगी"
+        },
+        {
+            "code": "272400060290240000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "दुर्गदर्या"
+        },
+        {
+            "code": "272400060290570000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "देवघर"
+        },
+        {
+            "code": "272400060289870000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "देहेनकोनी"
+        },
+        {
+            "code": "272400060290851900",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "धुवाडखार"
+        },
+        {
+            "code": "272400060289720000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "धेरंड"
+        },
+        {
+            "code": "272400060288870000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "धोकवडे"
+        },
+        {
+            "code": "272400060290810000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "नवखार तर्फे उमटे"
+        },
+        {
+            "code": "272400060290140000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "नवखार तर्फे श्रीगांव"
+        },
+        {
+            "code": "272400060288710000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "नवेदर कोळगांव"
+        },
+        {
+            "code": "272400060289030000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "नवेदर नवगाव"
+        },
+        {
+            "code": "272400060290300000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "नवेदर बेली"
+        },
+        {
+            "code": "272400060289940000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "नागझरी"
+        },
+        {
+            "code": "272400060290420000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "नागाव"
+        },
+        {
+            "code": "272400060289180000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "नारंगी"
+        },
+        {
+            "code": "272400060290851400",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "नारंगीखार"
+        },
+        {
+            "code": "272400060289710000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "निगडे"
+        },
+        {
+            "code": "272400060289670000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "नेहुली"
+        },
+        {
+            "code": "272400060289490000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "परहुर"
+        },
+        {
+            "code": "272400060289500000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "परहुरपाडा"
+        },
+        {
+            "code": "272400060289640000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "पवेळे"
+        },
+        {
+            "code": "272400060290590000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "पाझर"
+        },
+        {
+            "code": "272400060290410000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "पाल्हे"
+        },
+        {
+            "code": "272400060289280000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "पाळांबे"
+        },
+        {
+            "code": "272400060289980000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "पिटकिरी"
+        },
+        {
+            "code": "272400060289750000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "पेझारी"
+        },
+        {
+            "code": "272400060289250000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "पेढांबे"
+        },
+        {
+            "code": "272400060289890000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "पोयनाड"
+        },
+        {
+            "code": "272400060290851300",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "फणसापुर"
+        },
+        {
+            "code": "272400060290700000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "फणसापुर तर्फे उमटे"
+        },
+        {
+            "code": "272400060288840000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "फुफादेवी पाडा"
+        },
+        {
+            "code": "272400060289220000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "फोफेरी"
+        },
+        {
+            "code": "272400060289170000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "बहिरीचा पाडा"
+        },
+        {
+            "code": "272400060288960000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "बहिरोळे"
+        },
+        {
+            "code": "272400060290440000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "बागमळा"
+        },
+        {
+            "code": "272400060290660000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "बापळे"
+        },
+        {
+            "code": "272400060290360000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "बामणगांव"
+        },
+        {
+            "code": "272400060289010000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "बामणसुरे"
+        },
+        {
+            "code": "272400060289530000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "बामणोली"
+        },
+        {
+            "code": "272400060290210000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "बिडवागळे"
+        },
+        {
+            "code": "272400060290280000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "बेलकडे"
+        },
+        {
+            "code": "272400060290851200",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "बेलखार"
+        },
+        {
+            "code": "272400060288850000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "बेलपाडा"
+        },
+        {
+            "code": "272400060288950000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "बेलवली"
+        },
+        {
+            "code": "272400060290640000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "बेलोशी"
+        },
+        {
+            "code": "272400060288760000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "बोडणी"
+        },
+        {
+            "code": "272400060290190000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "बोपोली"
+        },
+        {
+            "code": "272400060290720000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "बोरघर"
+        },
+        {
+            "code": "272400060289040000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "बोरीस"
+        },
+        {
+            "code": "272400060289880000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "भाकरवड"
+        },
+        {
+            "code": "272400060290450000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "भादाणे"
+        },
+        {
+            "code": "272400060289310000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "भायमळा"
+        },
+        {
+            "code": "272400060289100000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "भाल"
+        },
+        {
+            "code": "272400060290730000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "भिलजी"
+        },
+        {
+            "code": "272400062289290000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "भिसराई"
+        },
+        {
+            "code": "272400060290851000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "भुते"
+        },
+        {
+            "code": "272400060290380000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "भेरसे"
+        },
+        {
+            "code": "272400060290790000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "भोनंग"
+        },
+        {
+            "code": "272400060290851100",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "भंगार दादाजी"
+        },
+        {
+            "code": "272400060290500000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "मल्याण"
+        },
+        {
+            "code": "272400060290650000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "महाजने"
+        },
+        {
+            "code": "272400060290850000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "महान"
+        },
+        {
+            "code": "272400060289160000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "मानकुळे"
+        },
+        {
+            "code": "272400060289510000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "मान तर्फे झिराड"
+        },
+        {
+            "code": "272400060288970000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "मापगांव"
+        },
+        {
+            "code": "272400060290770000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "मालाडे"
+        },
+        {
+            "code": "272400060289210000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "मांडवखार"
+        },
+        {
+            "code": "272400060288740000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "मांडवे तर्फे  झिराड"
+        },
+        {
+            "code": "272400060290530000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "मांडवे तर्फे बामणगांव"
+        },
+        {
+            "code": "272400060288800000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "मिळकतखार"
+        },
+        {
+            "code": "272400060289060000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "मुनवली"
+        },
+        {
+            "code": "272400060289540000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "मुळे"
+        },
+        {
+            "code": "272400060288980000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "मुशेत"
+        },
+        {
+            "code": "272400060289960000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "मेढेखार"
+        },
+        {
+            "code": "272400060290710000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "मोरखोल"
+        },
+        {
+            "code": "272400060290750000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "मोरोंडे"
+        },
+        {
+            "code": "272400060288860000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "म्हात्रोळी"
+        },
+        {
+            "code": "272400060288770000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "येलवणे"
+        },
+        {
+            "code": "272400060290840000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "राजेवाडी"
+        },
+        {
+            "code": "272400060290760000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "रामराज"
+        },
+        {
+            "code": "272400060289610000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "रायंदे"
+        },
+        {
+            "code": "272400060290100000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "रावेत"
+        },
+        {
+            "code": "272400060289190000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "रांजणखार"
+        },
+        {
+            "code": "272400060288810000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "रांजणखार डावली"
+        },
+        {
+            "code": "272400060288890001",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "रांजणपाडा"
+        },
+        {
+            "code": "272400060290200000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "रुईशेत भोमोली"
+        },
+        {
+            "code": "272400060289630000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "रुळे"
+        },
+        {
+            "code": "272400060290430000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "रेवदंडा"
+        },
+        {
+            "code": "272400060288820000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "रेवस"
+        },
+        {
+            "code": "272400060290850700",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "लक्ष्मीप्रसाद"
+        },
+        {
+            "code": "272400060289350000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "लेभी"
+        },
+        {
+            "code": "272400060290850600",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "लोणकोठा"
+        },
+        {
+            "code": "272400060289520000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "लोणारे"
+        },
+        {
+            "code": "272400060290060000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "वडवली"
+        },
+        {
+            "code": "272400060290400000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "वढाव खुर्द"
+        },
+        {
+            "code": "272400060290370000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "वढाव बुद्रुक"
+        },
+        {
+            "code": "272400060290560000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "वनवली"
+        },
+        {
+            "code": "272400060290250000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "वरसोली"
+        },
+        {
+            "code": "272400060290580000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "वरंडे"
+        },
+        {
+            "code": "272400062906300000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "वलवली"
+        },
+        {
+            "code": "272400060290010000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "वाघविरा"
+        },
+        {
+            "code": "272400060289920000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "वाघोडे"
+        },
+        {
+            "code": "272400060289450000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "वाघोली"
+        },
+        {
+            "code": "272400060289440000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "वाघोली (नविन)"
+        },
+        {
+            "code": "272400060289230000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "वाघ्रण"
+        },
+        {
+            "code": "272400060289700000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "वाडगांव"
+        },
+        {
+            "code": "272400060289090000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "वायशेत"
+        },
+        {
+            "code": "272400060289830000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "वालवडे"
+        },
+        {
+            "code": "272400060290510000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "वावे"
+        },
+        {
+            "code": "272400060290850200",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "वासखार"
+        },
+        {
+            "code": "272400060288780000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "विर्तसारळ"
+        },
+        {
+            "code": "272400060290390000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "वेल्हवली"
+        },
+        {
+            "code": "272400060289680000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "वेश्वी"
+        },
+        {
+            "code": "272400060289120000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "वैजाळी"
+        },
+        {
+            "code": "272400060289730000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "शहापूर"
+        },
+        {
+            "code": "272400060289800000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "शहाबाज"
+        },
+        {
+            "code": "272400060290040000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "श्रीगांव"
+        },
+        {
+            "code": "272400060290330000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "सहाण"
+        },
+        {
+            "code": "272400060289930000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "सागरगड"
+        },
+        {
+            "code": "272400060289560000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "सागांव"
+        },
+        {
+            "code": "272400060289270000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "सातघर"
+        },
+        {
+            "code": "272400060288990000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "सातिर्जे"
+        },
+        {
+            "code": "272400060288790000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "सारळ"
+        },
+        {
+            "code": "272400060288880000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "सासवणे"
+        },
+        {
+            "code": "272400060290230000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "सांबरी"
+        },
+        {
+            "code": "272400060290852700",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "सिमादेवी"
+        },
+        {
+            "code": "272400060290830000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "सुडकोली"
+        },
+        {
+            "code": "272400060289460000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "सुतारपाडा"
+        },
+        {
+            "code": "272400060290540000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "सुरई"
+        },
+        {
+            "code": "272400060288900000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "सुरेखार"
+        },
+        {
+            "code": "272400060289070000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "सोगांव"
+        },
+        {
+            "code": "272400060289130000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "हाशिवरे"
+        },
+        {
+            "code": "272400060290160000",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": false,
+            "value": "हेमनगर"
+        }
+    ],
+    [
+        {
+            "code": "10",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": false
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": true,
+            "value": "City Survey Maps"
+        },
+        {
+            "code": "09",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": false
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": true,
+            "value": "Cloth Mounted Survey No. Map"
+        },
+        {
+            "code": "05",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": false
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": true,
+            "value": "Court Watap Map"
+        },
+        {
+            "code": "04",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": false
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": true,
+            "value": "Fair Sketch"
+        },
+        {
+            "code": "07",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": false
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": true,
+            "value": "Gut Book"
+        },
+        {
+            "code": "11",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": false
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": true,
+            "value": "Land Acquisition Map"
+        },
+        {
+            "code": "12",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": false
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": true,
+            "value": "N.A. Map"
+        },
+        {
+            "code": "13",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": false
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": true,
+            "value": "Other Maps"
+        },
+        {
+            "code": "03",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": false
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": true,
+            "value": "Phalni"
+        },
+        {
+            "code": "02",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": false
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": true,
+            "value": "Phodi Tippan"
+        },
+        {
+            "code": "06",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": false
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": true,
+            "value": "Savistar Bhumapan Measurement Map"
+        },
+        {
+            "code": "08",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": false
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": true,
+            "value": "Tiangulation Sheet"
+        },
+        {
+            "code": "01",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": false
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": true,
+            "value": "Tippan"
+        },
+        {
+            "code": "VM",
+            "extraParm": null,
+            "extraParms": {
+                "hasData": true
+            },
+            "object": null,
+            "toStringIsCode": false,
+            "toStringIsValue": true,
+            "value": "Village Map"
+        }
+    ],
+    []
+]

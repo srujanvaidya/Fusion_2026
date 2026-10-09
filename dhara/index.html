@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="mr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <title>AgroControl — Agricultural Intelligence</title>
+    <link rel="icon" type="image/svg+xml" href="./agro_logo.svg" />
+    <link rel="apple-touch-icon" href="./logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html, body { height: 100%; overscroll-behavior: none; }
+      body {
+        background: #0E1712;
+        color: #F2F6F4;
+        font-family: 'Plus Jakarta Sans', 'Noto Sans Devanagari', -apple-system, BlinkMacSystemFont, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -webkit-tap-highlight-color: transparent;
+      }
+      #root { min-height: 100vh; min-height: 100dvh; }
+      input, select, textarea, button {
+        font-family: 'Noto Sans Devanagari', 'Noto Sans', -apple-system, sans-serif;
+      }
+      /* Scrollbar hidden on mobile */
+      ::-webkit-scrollbar { display: none; }
+      * { scrollbar-width: none; }
+    </style>
+    <script type="module" crossorigin src="/dashboard/dist/assets/index-Dlq2gULM.js"></script>
+    <link rel="stylesheet" crossorigin href="/dashboard/dist/assets/index-NxUcvkyo.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      // If someone accidentally visits /dashboard/ instead of /dashboard/dist/, redirect them instantly.
+      if (window.location.pathname.endsWith('/dashboard') || window.location.pathname.endsWith('/dashboard/')) {
+        window.location.replace('/dashboard/dist/?v=' + Date.now());
+      }
+    </script>
+  </body>
+</html>

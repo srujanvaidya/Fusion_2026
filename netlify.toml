@@ -1,0 +1,21 @@
+[build]
+  command = "cd dashboard && npm ci && cd .. && node scripts/vercel-build.mjs"
+  publish = "site"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[[redirects]]
+  from = "/get-started"
+  to = "/get-started.html"
+  status = 302
+
+[[redirects]]
+  from = "/login"
+  to = "/login.html"
+  status = 302
+
+[[redirects]]
+  from = "/dashboard"
+  to = "/dashboard/dist/"
+  status = 302

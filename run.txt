@@ -1,0 +1,33 @@
+═══════════════════════════════════════════
+  GUARDIAN — HOW TO RUN
+═══════════════════════════════════════════
+
+TERMINAL 1 — Web server (from SkyCrop-main folder):
+
+  cd /Users/tanmaykadam/Desktop/dex/CS/Hackathon/SkyCrop-main
+  npx serve . -p 8080
+
+TERMINAL 2 — GEE Satellite API (from SkyCrop-main folder):
+
+  cd /Users/tanmaykadam/Desktop/dex/CS/Hackathon/SkyCrop-main/gee_service
+  /Library/Frameworks/Python.framework/Versions/3.13/bin/uvicorn main:app --port 8001
+
+  NOTE: Use the full Python path above to avoid "No module named ee" errors.
+  The earthengine-api is installed in system Python 3.13, not conda.
+
+THEN OPEN:
+
+  http://localhost:8080               ← Landing page
+  http://localhost:8080/login.html    ← Login
+  http://localhost:8080/get-started.html  ← Sign up
+  http://localhost:8080/dashboard/dist    ← Dashboard
+
+═══════════════════════════════════════════
+  IF PORT 8001 IS ALREADY IN USE:
+═══════════════════════════════════════════
+
+  lsof -ti :8001 | xargs kill -9
+
+  Then restart Terminal 2 command above.
+
+═══════════════════════════════════════════

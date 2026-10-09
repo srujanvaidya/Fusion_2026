@@ -1,0 +1,375 @@
+<html lang="en"><head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>BhuNaksha</title>
+
+        <!-- Bootstrap Core CSS -->
+        <link href="../assets/bootstrap3/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../assets/ol3/ol.css" rel="stylesheet">
+        <link href="../assets/sidebar/ol3-sidebar.min.css" rel="stylesheet">
+        <link href="../assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <link href="bn4fullmap.css" rel="stylesheet">        
+
+        <script type="text/javascript" src="../js/jquery/js/jquery-3.1.0.min.js"></script>
+        <script type="text/javascript" src="../js/jquery/js/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="../assets/bootstrap3/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../assets/ol3/ol.js"></script>
+        <script type="text/javascript" src="../assets/sidebar/ol3-sidebar.min.js"></script>
+        <script type="text/javascript" src="config.js"></script>
+        <script type="text/javascript" src="../assets/misc/ratioscalebar.js"></script>
+        <script type="text/javascript" src="../assets/misc/jsts.min.js"></script>
+        <script type="text/javascript" src="georef.js"></script>
+
+        <style>
+            .loader {
+                border: 16px solid #f3f3f3;
+                border-radius: 50%;
+                border-top: 16px solid #3498db;
+                width: 120px;
+                height: 120px;
+                z-index: 99999;
+                position: fixed;
+                overflow: hidden;
+                display: none;
+                top: 50%;
+                left: 50%;
+                margin: -100px 0 0 -150px;
+                animation: spin 2s linear infinite;
+            }
+
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+
+            .mask{ background: #000; opacity: 0.5; position:fixed; top: 0; left: 0; width: 100%; height:100%;}
+
+            .visitor_position {
+                background-color:rgba(0,0,0,0.08);
+                margin-top:5px;
+                height: 20px;
+            }
+            .fullscreen-below-nav-bar{
+                top: 73px !important;
+            }
+            @media screen and (max-width: 600px) {
+                .fullscreen-below-nav-bar{
+                    top: 150px !important;
+                }
+                .visitor_position {
+                    height: 93px;
+                }
+                @media screen and (max-width: 768px) {
+                    .fullscreen-below-nav-bar{
+                        top: 150px !important;
+                    }
+                    .visitor_position {
+                        height: 93px;
+                    }
+                }
+
+            </style>
+        </head>
+
+        <body>
+            <div class="navbar-fixed-top">
+                <nav class="navbar navbar-inverse navbar-fixed-top">
+                    <div class="container" style="width:98%">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="#">BhuNaksha</a> 
+
+                        </div>
+                        <div id="navbar" class="collapse navbar-collapse">
+                            <div class="col-sm-3 col-md-3 ">
+                                <form class="navbar-form" role="search">
+                                    <div class="input-group input-group-sm" id="plotDiv" style="display: none;">
+                                        <input type="text" name="plotNo" id="plotNo" class="form-control" placeholder="Plot No..">
+                                        <input type="hidden" name="plotId" id="plotId" class="form-control">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default" type="button" id="plotNoButton" onclick="selectPlot($('#plotNo').val());"><span class="glyphicon glyphicon-search"></span></button>
+                                        </span>
+                                    </div>
+
+                                </form>
+
+                            </div>
+
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="javascript: login();"><i class="fa fa-user-circle"></i>Login</a></li>
+                            </ul>
+                        </div><!--/.nav-collapse -->
+                    </div>
+                </nav>
+                <div style="margin-top: 50px;">
+                    <div class="container" style="width:100%">
+                        <center>
+                            <div class="row form-group visitor_position">
+                                <!--div class="col-md-2"><label style="color:brown;font-size:12px;">Online Users:<b id="lblonlineusers" class="badge" style="color:green;background-color:white"></b></label></div>
+                                <div class="col-md-2"><label style="color:brown;font-size:12px;">Todays Total Users:<b id="lbltodayvisitor" class="badge" style="color:green;background-color:white"></b></label></div-->
+                                <div class="col-md-2"><label style="color:brown;font-size:12px;">Online Visitors: <b id="lblonlineVisitors" class="badge" style="color:green;background-color:white">121</b><label style="color:brown;font-size:10px;"></label></label></div>
+                                <div class="col-md-2"><label style="color:brown;font-size:12px;">Total Hits: <b id="lbltotalcountvisitor" class="badge" style="color:green;background-color:white">42057068</b><label style="color:brown;font-size:10px;">(Since 1 April 2019)</label></label></div>
+                                <!--div class="col-md-2"><label style="color:brown;font-size:12px;">Parcels Uploaded<b id="lblParcelCount" class="badge" style="color:green;background-color:white"></b><label style="color:brown;font-size:10px;"></label></label></div-->
+
+                            </div>
+                    </center></div>
+                </div>
+            </div>          
+
+            <div class="fullscreen-below-nav-bar">
+                <div class="relative-fullscreen">
+
+                    <div id="sidebar" class="sidebar sidebar-left">
+                        <!-- Nav tabs -->
+                        <div class="sidebar-tabs">
+                            <ul role="tablist">
+                                <li class="active"><a href="#home-pane" role="tab"><i class="fa fa-bars"></i></a></li>
+<!--                                <li><a href="#layer-pane" role="tab"><i class="fa fa-tree"></i></a></li>
+                                <li><a href="#theme-pane" role="tab"><i class="fa fa-photo"></i></a></li>-->
+
+                            </ul>
+
+                            <ul role="tablist">
+                                <li><a href="#about" role="tab"><i class="fa fa-info"></i></a></li>
+                            </ul>
+                        </div>
+
+
+                        <!-- Tab panes -->
+
+
+                        <div class="sidebar-content">
+
+                            <div class="sidebar-pane active" id="home-pane">
+                                <h1 class="sidebar-header">
+                                    Home
+                                    <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
+                                </h1>
+
+                                <div class="panel panel-info">
+                                    <div class="panel-heading">Location</div>
+                                    <div class="panel-body">
+                                        <table id="location_table"><tr><td>State </td><td><select id="level_0" onchange="loadVillages();"><option value="27">Maharastra</option></select></td></tr><tr><td>Category </td><td><select id="level_1" onchange="fetchLevels(1);"><option value="R">Rural</option><option value="U">Urban</option></select></td></tr><tr><td>District </td><td><select id="level_2" onchange="fetchLevels(2);"><option value="05">05 अकोला</option><option value="07">07 अमरावती</option><option value="26">26 अहमदनगर</option><option value="29">29 उस्मानाबाद</option><option value="19">19 औरंगाबाद</option><option value="34">34 कोल्हापूर</option><option value="12">12 गडचिरोली</option><option value="11">11 गोंदिया</option><option value="13">13 चंद्रपूर</option><option value="03">03 जळगाव</option><option value="18">18 जालना</option><option value="21">21 ठाणे</option><option value="02">02 धुळे</option><option value="09">09 नागपूर</option><option value="20">20 नाशिक</option><option value="15">15 नांदेड</option><option value="01">01 नंदुरबार</option><option value="17">17 परभणी</option><option value="36">36 पालघर</option><option value="25">25 पुणे</option><option value="27">27 बीड</option><option value="04">04 बुलडाणा</option><option value="10">10 भंडारा</option><option value="14">14 यवतमाळ</option><option value="32">32 रत्नागिरी</option><option value="24">24 रायगड</option><option value="28">28 लातूर</option><option value="08">08 वर्धा</option><option value="06">06 वाशिम</option><option value="31">31 सातारा</option><option value="35">35 सांगली</option><option value="33">33 सिंधुदुर्ग</option><option value="30">30 सोलापूर</option><option value="16">16 हिंगोली</option></select></td></tr><tr><td>Taluka </td><td><select id="level_3" onchange="fetchLevels(3);"><option value="02">02 आकोट</option><option value="04">04 आकोला</option><option value="01">01 तेल्हारा</option><option value="06">06 पातुर</option><option value="07">07 बार्शीटाकळी</option><option value="03">03 बाळापुर</option><option value="05">05 मुर्तुज़ापुर</option></select></td></tr><tr><td>Village </td><td><select id="level_4" onchange="loadMap();"><option value="" selected="selected">--Select--</option><option value="270500020047510000">270500020047510000 अकोलखेड</option><option value="270500020047500000">270500020047500000 अकोली जहॉगीर</option><option value="270500020047200000">270500020047200000 अडगांव खु.</option><option value="270500020047260000">270500020047260000 अमिनापूर</option><option value="270500020047980000">270500020047980000 अल्यारपूर</option><option value="270500020047430000">270500020047430000 अंबाडी</option><option value="270500020040502000">270500020040502000 आकोट भाग 1</option><option value="270500020040502001">270500020040502001 आकोट   भाग 2</option><option value="270500020048490000">270500020048490000 आगासखेड</option><option value="270500020046930000">270500020046930000 आलमपूर</option><option value="270500020047990000">270500020047990000 आलेगांव</option><option value="270500020048120000">270500020048120000 आलेवाडी</option><option value="270500020047800000">270500020047800000 आसेगांव बाजार</option><option value="270500020048180000">270500020048180000 आंध</option><option value="270500020046970000">270500020046970000 आंबोडा</option><option value="270500020048170000">270500020048170000 इसापूर</option><option value="270500020047080000">270500020047080000 उमरा</option><option value="270500020047030000">270500020047030000 एदलापूर</option><option value="270500020046920000">270500020046920000 औरंगाबाद</option><option value="270500020047710000">270500020047710000 औरंगाबाद प्र.आकोट</option><option value="270500020047840000">270500020047840000 करतवाडी</option><option value="270500020048470000">270500020048470000 करातवाडी</option><option value="270500020048460000">270500020048460000 करोडी</option><option value="270500020047820000">270500020047820000 कवठा खु.</option><option value="270500020047810000">270500020047810000 कवठा बु.</option><option value="270500020047160000">270500020047160000 कातखेड</option><option value="270500020047750000">270500020047750000 कान्हेरी</option><option value="270500020047450000">270500020047450000 कापशी</option><option value="270500020047850000">270500020047850000 कालवाडी</option><option value="270500020048210000">270500020048210000 कावसा खु.</option><option value="270500020048220000">270500020048220000 कावसा बु.</option><option value="270500020046940000">270500020046940000 कासोद शिवपूर</option><option value="270500020048550000">270500020048550000 किनखेड</option><option value="270500020048230000">270500020048230000 कुटासा भाग 1</option><option value="270500020048230001">270500020048230001 कुटासा भाग 2</option><option value="270500020048610000">270500020048610000 कुंड</option><option value="270500020046610000">270500020046610000 केमलापुर</option><option value="270500020048560000">270500020048560000 केळीवेळी</option><option value="270500020047860000">270500020047860000 केसोरी</option><option value="270500020047120000">270500020047120000 कोलविहीर</option><option value="270500020048600000">270500020048600000 कोहा</option><option value="270500020047740000">270500020047740000 खानापुर त्र्यंबकपुर</option><option value="270500020048420000">270500020048420000 खानापुर बु.</option><option value="270500020048080000">270500020048080000 खापरवाडी खु.</option><option value="270500020048010000">270500020048010000 खापरवाडी बु.</option><option value="270500020046870000">270500020046870000 खासबाग</option><option value="270500020047350000">270500020047350000 खिरकुंड खु.</option><option value="270500020047360000">270500020047360000 खिरकुंड बु .</option><option value="270500020047690000">270500020047690000 खुदावंतपुर</option><option value="270500020047870000">270500020047870000 खेर्डा</option><option value="270500020047040000">270500020047040000 खैरखेड</option><option value="270500020048240000">270500020048240000 गरसोळी</option><option value="270500020047300000">270500020047300000 गाजीपुर</option><option value="270500020048430000">270500020048430000 गिरजापुर</option><option value="270500020047060000">270500020047060000 गोखि</option><option value="270500020047490000">270500020047490000 गौलखेड</option><option value="270500020047150000">270500020047150000 ग्याजुद्दीन नगर</option><option value="270500020047730000">270500020047730000 चापानेर</option><option value="270500020047570000">270500020047570000 चिचखेड खु.</option><option value="270500020047110000">270500020047110000 चिचखेड बु.</option><option value="270500020047330000">270500020047330000 चिचपाणी</option><option value="270500020047240000">270500020047240000 चिंचखेड खु.</option><option value="270500020047020000">270500020047020000 चोरवड खु.</option><option value="270500020047050000">270500020047050000 चोरवड बु.</option><option value="270500020048480000">270500020048480000 चोहोट्टा</option><option value="270500020047580000">270500020047580000 चंडिकापुर</option><option value="270500020047390000">270500020047390000 चंदनपूर तिरवारी</option><option value="270500020048090000">270500020048090000 जउळका</option><option value="270500020048410000">270500020048410000 जउळखेड खु.</option><option value="270500020048570000">270500020048570000 जउळखेड बु.</option><option value="270500020047320000">270500020047320000 जनुना खु.</option><option value="270500020047310000">270500020047310000 जनुना बु.</option><option value="270500020047180000">270500020047180000 जळगांव नहाटे</option><option value="270500020046900000">270500020046900000 जितापूर प्र. अडगांव</option><option value="270500020046910000">270500020046910000 जितापूर प्र. रुपागड</option><option value="270500020047130000">270500020047130000 जैनपुर पिंप्री</option><option value="270500020047720000">270500020047720000 जोगबन</option><option value="270500020048360000">270500020048360000 टाकळी खु.</option><option value="270500020048340000">270500020048340000 टाकळी बु.</option><option value="270500020048580000">270500020048580000 ठोकबर्डी</option><option value="270500020047340000">270500020047340000 डांगरखेड</option><option value="270500020047650000">270500020047650000 ढगा</option><option value="270500020048200000">270500020048200000 तरोडा</option><option value="270500020047630000">270500020047630000 ताजनापुर</option><option value="270500020047890000">270500020047890000 तांदुळवाडी</option><option value="270500020048300000">270500020048300000 दनोरी</option><option value="270500020046860000">270500020046860000 दहिखेल फुटकर</option><option value="270500020047140000">270500020047140000 दाउतपूर</option><option value="270500020048140000">270500020048140000 दिनोडा</option><option value="270500020047550000">270500020047550000 दिवठाणा</option><option value="270500020048190000">270500020048190000 देउळगाव</option><option value="270500020048110000">270500020048110000 देवरी</option><option value="270500020048310000">270500020048310000 देवर्डा</option><option value="270500020047620000">270500020047620000 देवुळगांव</option><option value="270500020047770000">270500020047770000 धनगरवाडी</option><option value="270500020047600000">270500020047600000 धामनगांव</option><option value="270500020048380000">270500020048380000 धामना बु.</option><option value="270500020048450000">270500020048450000 धारेल</option><option value="270500020048530000">270500020048530000 नखेगांव</option><option value="270500020047930000">270500020047930000 नयनापूर</option><option value="270500020047520000">270500020047520000 नरसिंगपुर</option><option value="270500020048510000">270500020048510000 नांदखेड</option><option value="270500020048370000">270500020048370000 निजामपुर</option><option value="270500020047230000">270500020047230000 नेव्होरी  खु.</option><option value="270500020047220000">270500020047220000 नेव्होरी बु.</option><option value="270500020047540000">270500020047540000 पणज</option><option value="270500020048290000">270500020048290000 पनोरी</option><option value="270500020048280000">270500020048280000 पळसोद</option><option value="270500020048270000">270500020048270000 पाटसुल</option><option value="270500020048400000">270500020048400000 पातोंडा</option><option value="270500020048320000">270500020048320000 पारळा</option><option value="270500020048100000">270500020048100000 पिप्रि डिक्कर</option><option value="270500020048520000">270500020048520000 पिलकवाडी</option><option value="270500020047010000">270500020047010000 पिंप्री खु.</option><option value="270500020048040000">270500020048040000 पुंडा</option><option value="270500020046850000">270500020046850000 पोपटखेड</option><option value="270500020047950000">270500020047950000 फत्तेपुर</option><option value="270500020048000000">270500020048000000 बळेगाव</option><option value="270500020048060000">270500020048060000 बांबर्डा बु.</option><option value="270500020047070000">270500020047070000 बेलुरा</option><option value="270500020047480000">270500020047480000 बोचरा</option><option value="270500020048590000">270500020048590000 बोरी</option><option value="270500020046990000">270500020046990000 बोर्डी</option><option value="270500020047280000">270500020047280000 बंधारा</option><option value="270500020047410000">270500020047410000 भिलखेड</option><option value="270500020048540000">270500020048540000 भोड</option><option value="270500020047000000">270500020047000000 मक्रमपुर</option><option value="270500020048130000">270500020048130000 मरोडा</option><option value="270500020047190000">270500020047190000 मलकापुर प्र. अडगांव</option><option value="270500020046830000">270500020046830000 मलकापूर गोंड</option><option value="270500020046840000">270500020046840000 मलकापूर भिल</option><option value="270500020047460000">270500020047460000 महागांव</option><option value="270500020048440000">270500020048440000 महालक्ष्मी</option><option value="270500020047400000">270500020047400000 मानकरी</option><option value="270500020047380000">270500020047380000 मार्डी प्र. खटकाळी</option><option value="270500020047370000">270500020047370000 मार्डी प्र. चिंचोणा</option><option value="270500020047760000">270500020047760000 मियॉचे खेडे</option><option value="270500020047670000">270500020047670000 मिर्झापुर</option><option value="270500020047920000">270500020047920000 मुंडगांव</option><option value="270500020048050000">270500020048050000 मोहम्मद पुर</option><option value="270500020047680000">270500020047680000 मोहाळा</option><option value="270500020047660000">270500020047660000 मंचनपुर</option><option value="270500020048350000">270500020048350000 राजुरवाडी</option><option value="270500020047440000">270500020047440000 राजुरा</option><option value="270500020047210000">270500020047210000 राजेगांव</option><option value="270500020040502002">270500020040502002 रामटेक</option><option value="270500020046950000">270500020046950000 रामापुर धारुर</option><option value="270500020046880000">270500020046880000 राहणापूर</option><option value="270500020047470000">270500020047470000 रुईखेड</option><option value="270500020047290000">270500020047290000 रुधाडी प्र. खटकाळी</option><option value="270500020047420000">270500020047420000 रुधाडी प्र. चिंचोणा</option><option value="270500020048390000">270500020048390000 रेल</option><option value="270500020048160000">270500020048160000 रोहनखेड</option><option value="270500020048260000">270500020048260000 रौंदळा</option><option value="270500020047790000">270500020047790000 रंभापुर</option><option value="270500020047700000">270500020047700000 लखमापूर</option><option value="270500020047090000">270500020047090000 लाडेगाव</option><option value="270500020047960000">270500020047960000 लामकानी</option><option value="270500020048150000">270500020048150000 लोतखेड</option><option value="270500020047270000">270500020047270000 लोहारी खु.</option><option value="270500020047250000">270500020047250000 लोहारी बु.</option><option value="270500020047640000">270500020047640000 वडगाव मेंढे</option><option value="270500020047610000">270500020047610000 वडाळी देशमुख</option><option value="270500020047170000">270500020047170000 वडाळी सटवाई</option><option value="270500020047910000">270500020047910000 वणी</option><option value="270500020048070000">270500020048070000 वरुर</option><option value="270500020047100000">270500020047100000 वसाळी नागापुर</option><option value="270500020047560000">270500020047560000 वाई</option><option value="270500020047590000">270500020047590000 वाघोडा</option><option value="270500020047900000">270500020047900000 वारुळा</option><option value="270500020048030000">270500020048030000 विटाळी</option><option value="270500020046820000">270500020046820000 शहानुर</option><option value="270500020479700000">270500020479700000 शहापुर</option><option value="270500020047530000">270500020047530000 शहापूर प्र. कारला</option><option value="270500020046890000">270500020046890000 शहापूर प्र. रुपागड</option><option value="270500020046960000">270500020046960000 सर्फाबाद</option><option value="270500020048500000">270500020048500000 सालखेड</option><option value="270500020047830000">270500020047830000 सावरखेड</option><option value="270500020048020000">270500020048020000 सावरगांव</option><option value="270500020047780000">270500020047780000 सावरा</option><option value="270500020046980000">270500020046980000 सुकळी</option><option value="270500020047940000">270500020047940000 सुलतानपूर</option><option value="270500020047880000">270500020047880000 सोनबर्डी</option><option value="270500020048330000">270500020048330000 हनवाडी</option><option value="270500020048250000">270500020048250000 हिलालाबाद</option></select></td></tr></table>
+
+                                    </div>
+                                </div>
+
+                                <div class="panel panel-info" id="surveyDiv">
+                                    <div class="panel-heading">Search Plot No:</div>
+                                    <div class="input-group input-group-sm">
+                                        <input type="text" name="surveyNo" id="surveyNo" class="form-control" placeholder="Enter Parcel No...">                                        
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default" type="button" id="surveyDivButton" onclick="selectPlot1($('#surveyNo').val());"><span class="glyphicon glyphicon-search"></span></button>
+                                        </span>
+                                    </div><br><br>
+
+                                    <div class="panel-heading">Select Plot No:</div>
+                                    <div class="input-group input-group-sm">                                                   
+                                        <div id="PlotsComboBox"><select style="font-size:12" id="surveyNumber" onchange="selectPlot1(this.options[this.selectedIndex].text);"></select></div>
+                                    </div>
+
+                                    <div id="surveyDetail"></div>
+
+
+                                </div>
+
+                                <div class="panel panel-success">
+                                    <div class="panel-heading">Plot Info</div>
+                                    <div class="panel-body">
+
+
+
+                                        <div id="plotinfo"></div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                            <div class="sidebar-pane" id="layer-pane">
+                                <h1 class="sidebar-header">Layers<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+
+                                <div class="panel panel-info">
+                                    <div id="layer-list" class="panel-body"></div>
+                                </div>
+                            </div>
+                            <div class="sidebar-pane" id="layer-pane">
+                                <h1 class="sidebar-header">Custom Layers<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+
+                                <div class="panel panel-info">
+                                    <div id="derived-layer-list" class="panel-body"></div>
+                                                                    <div id="pniu_search" class="panel-body">
+                                    <div class="input-group input-group-sm">
+                                        <input type="text" name="pniu" id="pniu" class="form-control" placeholder="PNIU..">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default" id="getPlot" type="button" onclick="getPlotForPNIU($('#pniu').val().trim());"><span class="glyphicon glyphicon-search"></span></button>
+                                        </span>
+
+                                    </div>
+                                    <br>
+                                    <div id="view-options">
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="sidebar-pane" id="theme-pane">
+                                <h1 class="sidebar-header">Themes<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+                                <div class="panel panel-info">
+                                    <div id="theme-list" class="panel-body"></div>
+                                </div>
+
+                            </div>
+
+                            <div class="sidebar-pane" id="about">
+                                <h1 class="sidebar-header">About BhuNaksha<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="map" class="sidebar-map"><div class="ol-viewport" style="position: relative; overflow: hidden; width: 100%; height: 100%; touch-action: none;"><canvas class="ol-unselectable" width="1200" height="760" style="width: 100%; height: 100%;"></canvas><div class="ol-overlaycontainer"></div><div class="ol-overlaycontainer-stopevent"><div class="ol-zoom ol-unselectable ol-control"><button class="ol-zoom-in" type="button" title="Zoom in">+</button><button class="ol-zoom-out" type="button" title="Zoom out">−</button></div><div class="ol-rotate ol-unselectable ol-control ol-hidden"><button class="ol-rotate-reset" type="button" title="Reset rotation"><span class="ol-compass" style="transform: rotate(0rad);">⇧</span></button></div><div class="ol-attribution ol-unselectable ol-control ol-collapsed ol-logo-only"><ul><li style=""><a href="https://openlayers.org/"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAA3NCSVQICAjb4U/gAAAACXBIWXMAAAHGAAABxgEXwfpGAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAhNQTFRF////AP//AICAgP//AFVVQECA////K1VVSbbbYL/fJ05idsTYJFtbbcjbJllmZszWWMTOIFhoHlNiZszTa9DdUcHNHlNlV8XRIVdiasrUHlZjIVZjaMnVH1RlIFRkH1RkH1ZlasvYasvXVsPQH1VkacnVa8vWIVZjIFRjVMPQa8rXIVVkXsXRsNveIFVkIFZlIVVj3eDeh6GmbMvXH1ZkIFRka8rWbMvXIFVkIFVjIFVkbMvWH1VjbMvWIFVlbcvWIFVla8vVIFVkbMvWbMvVH1VkbMvWIFVlbcvWIFVkbcvVbMvWjNPbIFVkU8LPwMzNIFVkbczWIFVkbsvWbMvXIFVkRnB8bcvW2+TkW8XRIFVkIlZlJVloJlpoKlxrLl9tMmJwOWd0Omh1RXF8TneCT3iDUHiDU8LPVMLPVcLPVcPQVsPPVsPQV8PQWMTQWsTQW8TQXMXSXsXRX4SNX8bSYMfTYcfTYsfTY8jUZcfSZsnUaIqTacrVasrVa8jTa8rWbI2VbMvWbcvWdJObdcvUdszUd8vVeJaee87Yfc3WgJyjhqGnitDYjaarldPZnrK2oNbborW5o9bbo9fbpLa6q9ndrL3ArtndscDDutzfu8fJwN7gwt7gxc/QyuHhy+HizeHi0NfX0+Pj19zb1+Tj2uXk29/e3uLg3+Lh3+bl4uXj4ufl4+fl5Ofl5ufl5ujm5+jmySDnBAAAAFp0Uk5TAAECAgMEBAYHCA0NDg4UGRogIiMmKSssLzU7PkJJT1JTVFliY2hrdHZ3foSFhYeJjY2QkpugqbG1tre5w8zQ09XY3uXn6+zx8vT09vf4+Pj5+fr6/P39/f3+gz7SsAAAAVVJREFUOMtjYKA7EBDnwCPLrObS1BRiLoJLnte6CQy8FLHLCzs2QUG4FjZ5GbcmBDDjxJBXDWxCBrb8aM4zbkIDzpLYnAcE9VXlJSWlZRU13koIeW57mGx5XjoMZEUqwxWYQaQbSzLSkYGfKFSe0QMsX5WbjgY0YS4MBplemI4BdGBW+DQ11eZiymfqQuXZIjqwyadPNoSZ4L+0FVM6e+oGI6g8a9iKNT3o8kVzNkzRg5lgl7p4wyRUL9Yt2jAxVh6mQCogae6GmflI8p0r13VFWTHBQ0rWPW7ahgWVcPm+9cuLoyy4kCJDzCm6d8PSFoh0zvQNC5OjDJhQopPPJqph1doJBUD5tnkbZiUEqaCnB3bTqLTFG1bPn71kw4b+GFdpLElKIzRxxgYgWNYc5SCENVHKeUaltHdXx0dZ8uBI1hJ2UUDgq82CM2MwKeibqAvSO7MCABq0wXEPiqWEAAAAAElFTkSuQmCC"></a></li></ul><button type="button" title="Attributions"><span>i</span></button></div></div></div></div>
+                    <div id="load" class="loader"></div>
+                    <div class="mask" style="display: none;"></div>
+                    
+                </div>
+
+            </div>
+
+            <!-- PlotInfo popup  -->
+            <div id="plotInfoContPop">
+
+
+                <table width="100%">
+                    <tbody><tr><th>Plot Info</th>
+                        <th style="text-align: right"> 
+
+                            <button id="bt-info-close"><i style="color: #0074d9" class="fa fa-window-close"></i></button></th>
+                    </tr>
+                    <tr>
+                        <td colspan="2"> <div id="plotInfoPop">
+                                Info
+                            </div></td>
+                    </tr>
+                </tbody></table>
+
+
+
+            </div>  <!-- PlotInfo popup  -->
+
+            <div id="attribution" class="villattribution"></div>
+
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog" id="m_dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header" id="m_header" style="background-color: #008B8B">
+                            <button type="button" class="close" data-dismiss="modal" style="color: #FF0000">×</button>
+                            <h4 class="modal-title">Property Card Information</h4>
+                        </div>
+
+                        <div class="modal-body" id="p_card" align="center">
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <button id="btn" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#bufferModal" style="display:none">Open Modal</button>
+
+            <!-- Modal -->
+            <div id="bufferModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">×</button>
+                            <h4 class="modal-title">Modal Header</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Fill Buffer Distance(in meter)</p>
+                            <input id="bufferDistance" type="number">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal" onclick="bufferPlot()">Ok</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        
+        <script>
+            $('#plotDiv').hide();
+
+            var sno = document.getElementById("surveyNo");
+            sno.addEventListener("keyup", function (event) {
+                if (event.keyCode === 13) {
+                    event.preventDefault();
+                    document.getElementById("surveyDivButton").click();
+                }
+            });
+            getVisitorStats();
+
+            function getVisitorStats()
+            {
+                var hosturl = "../rest/user/getVisitorStats/";
+                $.ajax({
+                    url: hosturl,
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                        "state": "27"
+                    },
+                    success: function (result)
+                    {
+                        //todayusers = result;
+                        // $('#lblonlineusers').text(result.usersLoggedIn);
+                        //  $('#lbltodayvisitor').text(result.todaysUsers);
+                        $('#lblonlineVisitors').text(result.visitorsOnline);
+                        $('#lbltotalcountvisitor').text(result.hitCount);
+                        //     $('#lblMapCount').text(result.mapCount);
+                        //     $('#lblParcelCount').text(result.parcelCount);
+
+                    }
+                });
+            }
+
+    window.addEventListener('beforeunload', function (e)
+            {
+                console.log(newPage);
+                if (newPage !== 'login') {
+                var hosturl = "../rest/user/removeSession/";
+                $.ajax({
+                    url: hosturl,
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                        "state": "27"
+                    },
+                    success: function (result)
+                    {
+                        return result;
+                    }
+                });
+            }
+                // Cancel the event
+//e.preventDefault();
+// Chrome requires returnValue to be set
+// e.returnValue = '';
+            newPage='';
+            });
+        </script>
+
+    
+</body></html>

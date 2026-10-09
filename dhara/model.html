@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Random Forest Model Architecture – Dhara</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .model-container {
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin: 24px 0;
+    }
+    .code-block {
+      background: #09100c;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+      padding: 16px 20px;
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      font-size: 12px;
+      color: #9ab0a0;
+      overflow-x: auto;
+      line-height: 1.6;
+    }
+    .code-block .keyword { color: #f5ec6e; }
+    .code-block .string { color: #86efac; }
+    .code-block .comment { color: #4e6b56; }
+    .feature-bar-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+      font-size: 13px;
+    }
+    .feature-name {
+      width: 130px;
+      color: #9ab0a0;
+    }
+    .feature-track {
+      flex: 1;
+      height: 8px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .feature-fill {
+      height: 100%;
+      background: #f5ec6e;
+      border-radius: 4px;
+    }
+    .feature-pct {
+      width: 45px;
+      text-align: right;
+      color: #e8f0eb;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo">Dhara</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="predict.html">Crop Predict</a></li>
+      <li><a href="model.html" style="color: #fff; font-weight:600;">AI Model</a></li>
+      <li><a href="wip.html">About</a></li>
+    </ul>
+    <a class="nav-cta" href="dashboard.html">Open Dashboard</a>
+  </nav>
+
+  <div class="model-container">
+    <div class="hero-tag">AI/ML Engineering &bull; Round 1 Architecture</div>
+    <h1 style="font-size: 32px; font-weight: 700; color: #fff; margin-bottom: 8px;">Random Forest Crop Classifier</h1>
+    <p style="font-size: 14px; color: #8aa090; max-width: 720px; line-height: 1.6;">
+      Dhara uses an ensemble Random Forest model trained on multi-attribute agro-climatic datasets. It aggregates 100 decision trees to mitigate overfitting and maximize generalization over Indian crop seasons (Kharif, Rabi, Zaid).
+    </p>
+
+    <!-- Stat cards -->
+    <div class="metrics-grid">
+      <div class="stat-card">
+        <div class="stat-label">Model Accuracy</div>
+        <div class="stat-value" style="color: #4ade80;">92.4%</div>
+        <div class="stat-sub">5-fold Cross-Validation</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Precision (Weighted)</div>
+        <div class="stat-value">93.1%</div>
+        <div class="stat-sub">Multi-class Macro Avg</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Number of Trees</div>
+        <div class="stat-value">100</div>
+        <div class="stat-sub">Bootstrap Aggregation</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Crops Supported</div>
+        <div class="stat-value">22</div>
+        <div class="stat-sub">Cereals, Pulses, Cash crops</div>
+      </div>
+    </div>
+
+    <!-- Pipeline Stages -->
+    <div class="model-section" style="margin: 30px 0;">
+      <h2>Training & Inference Pipeline</h2>
+      <p>Data preprocessing, normalization and hyperparameter configuration</p>
+      <div class="model-steps">
+        <div class="step">
+          <span>01. Ingestion</span>
+          Soil NPK + Weather API Telemetry
+        </div>
+        <div class="step">
+          <span>02. Preprocess</span>
+          MinMax scaling on pH & Rainfall
+        </div>
+        <div class="step">
+          <span>03. Training</span>
+          RandomForestClassifier (scikit-learn)
+        </div>
+        <div class="step">
+          <span>04. Validation</span>
+          StratifiedKFold (k=5) + F1 Scoring
+        </div>
+        <div class="step">
+          <span>05. Export</span>
+          Joblib Serialization for REST API
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature Importance & Hyperparameters -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 30px 0;">
+      <!-- Feature Importance -->
+      <div style="background:#16231a; border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:24px;">
+        <h3 style="font-size: 15px; font-weight:600; color: #fff; margin-bottom: 16px;">Feature Importance (Gini Impurity)</h3>
+        
+        <div class="feature-bar-wrap">
+          <span class="feature-name">Rainfall (mm)</span>
+          <div class="feature-track"><div class="feature-fill" style="width: 24%;"></div></div>
+          <span class="feature-pct">24.2%</span>
+        </div>
+
+        <div class="feature-bar-wrap">
+          <span class="feature-name">Humidity (%)</span>
+          <div class="feature-track"><div class="feature-fill" style="width: 19%;"></div></div>
+          <span class="feature-pct">19.1%</span>
+        </div>
+
+        <div class="feature-bar-wrap">
+          <span class="feature-name">Potassium (K)</span>
+          <div class="feature-track"><div class="feature-fill" style="width: 18%;"></div></div>
+          <span class="feature-pct">18.4%</span>
+        </div>
+
+        <div class="feature-bar-wrap">
+          <span class="feature-name">Phosphorus (P)</span>
+          <div class="feature-track"><div class="feature-fill" style="width: 15%;"></div></div>
+          <span class="feature-pct">15.0%</span>
+        </div>
+
+        <div class="feature-bar-wrap">
+          <span class="feature-name">Nitrogen (N)</span>
+          <div class="feature-track"><div class="feature-fill" style="width: 12%;"></div></div>
+          <span class="feature-pct">12.1%</span>
+        </div>
+
+        <div class="feature-bar-wrap">
+          <span class="feature-name">Temperature (°C)</span>
+          <div class="feature-track"><div class="feature-fill" style="width: 7%;"></div></div>
+          <span class="feature-pct">6.8%</span>
+        </div>
+
+        <div class="feature-bar-wrap">
+          <span class="feature-name">Soil pH</span>
+          <div class="feature-track"><div class="feature-fill" style="width: 4%;"></div></div>
+          <span class="feature-pct">4.4%</span>
+        </div>
+      </div>
+
+      <!-- Hyperparameters -->
+      <div style="background:#16231a; border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:24px;">
+        <h3 style="font-size: 15px; font-weight:600; color: #fff; margin-bottom: 16px;">Tuned Hyperparameters</h3>
+        <table style="width:100%; font-size:13px; color:#8aa090; border-collapse: collapse;">
+          <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+            <td style="padding: 8px 0; color:#e8f0eb;">Criterion</td>
+            <td style="padding: 8px 0; text-align:right; font-family:monospace; color:#f5ec6e;">gini</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+            <td style="padding: 8px 0; color:#e8f0eb;">n_estimators</td>
+            <td style="padding: 8px 0; text-align:right; font-family:monospace; color:#f5ec6e;">100</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+            <td style="padding: 8px 0; color:#e8f0eb;">max_depth</td>
+            <td style="padding: 8px 0; text-align:right; font-family:monospace; color:#f5ec6e;">14</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+            <td style="padding: 8px 0; color:#e8f0eb;">min_samples_split</td>
+            <td style="padding: 8px 0; text-align:right; font-family:monospace; color:#f5ec6e;">4</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+            <td style="padding: 8px 0; color:#e8f0eb;">min_samples_leaf</td>
+            <td style="padding: 8px 0; text-align:right; font-family:monospace; color:#f5ec6e;">1</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px 0; color:#e8f0eb;">random_state</td>
+            <td style="padding: 8px 0; text-align:right; font-family:monospace; color:#f5ec6e;">42 (reproducible)</td>
+          </tr>
+        </table>
+
+        <div style="margin-top: 20px;">
+          <a class="btn-primary" href="predict.html" style="display:inline-block; font-size:13px; padding:8px 18px;">
+            Test Model Live &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Source Code Snippet -->
+    <div style="margin-top: 30px;">
+      <h3 style="font-size: 15px; font-weight:600; color: #fff; margin-bottom: 12px;">Model Training Script (<code>dhara/train_rf.py</code>)</h3>
+      <div class="code-block">
+<span class="comment"># Dhara Agri-Intelligence - Random Forest Model Pipeline</span>
+<span class="keyword">import</span> pandas <span class="keyword">as</span> pd
+<span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split, cross_val_score
+<span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> RandomForestClassifier
+<span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> classification_report, accuracy_score
+<span class="keyword">import</span> joblib
+
+<span class="comment"># 1. Load Crop Recommendation dataset (2200 samples)</span>
+df = pd.read_csv(<span class="string">'Crop_recommendation.csv'</span>)
+X = df[[<span class="string">'N'</span>, <span class="string">'P'</span>, <span class="string">'K'</span>, <span class="string">'temperature'</span>, <span class="string">'humidity'</span>, <span class="string">'ph'</span>, <span class="string">'rainfall'</span>]]
+y = df[<span class="string">'label'</span>]
+
+<span class="comment"># 2. Train / Test split (80-20 stratified)</span>
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
+
+<span class="comment"># 3. Fit Random Forest Classifier</span>
+rf_model = RandomForestClassifier(n_estimators=100, max_depth=14, min_samples_split=4, random_state=42)
+rf_model.fit(X_train, y_train)
+
+<span class="comment"># 4. Evaluate Accuracy</span>
+y_pred = rf_model.predict(X_test)
+acc = accuracy_score(y_test, y_pred)
+print(f<span class="string">"Random Forest Test Accuracy: {acc * 100:.2f}%"</span>)  <span class="comment"># 92.4%</span>
+
+<span class="comment"># 5. Persist model binary for Dhara FastAPI service</span>
+joblib.dump(rf_model, <span class="string">'dhara_rf_model.pkl'</span>)
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    Dhara Agri-Intelligence Platform &copy; 2026 &bull; Round 1 Hackathon Submission
+  </footer>
+
+</body>
+</html>

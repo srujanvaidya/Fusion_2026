@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard – Dhara</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo">Dhara</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="predict.html">Crop Predict</a></li>
+      <li><a href="model.html">AI Model</a></li>
+    </ul>
+    <a class="nav-cta" href="wip.html">Sign Out</a>
+  </nav>
+
+  <div class="dash-layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-section">Overview</div>
+      <a class="sidebar-link active" href="dashboard.html">📊 Dashboard</a>
+      <a class="sidebar-link" href="predict.html">🌾 Crop Prediction</a>
+      <a class="sidebar-link" href="wip.html">🛰️ Satellite View</a>
+      <a class="sidebar-link" href="wip.html">⛈️ Weather</a>
+
+      <div class="sidebar-section">Farmer</div>
+      <a class="sidebar-link" href="wip.html">🗺️ My Land</a>
+      <a class="sidebar-link" href="wip.html">📋 Insurance</a>
+      <a class="sidebar-link" href="wip.html">📜 Govt Schemes</a>
+
+      <div class="sidebar-section">Account</div>
+      <a class="sidebar-link" href="wip.html">👤 Profile</a>
+      <a class="sidebar-link" href="wip.html">⚙️ Settings</a>
+    </aside>
+
+    <!-- Main content -->
+    <div class="dash-content">
+
+      <div class="dash-header">
+        <h1>Good morning, Farmer 👋</h1>
+        <p>Here's a summary of your fields and predictions</p>
+      </div>
+
+      <!-- Stat cards -->
+      <div class="stat-row">
+        <div class="stat-card">
+          <div class="stat-label">Fields Registered</div>
+          <div class="stat-value">3</div>
+          <div class="stat-sub">Khadakwasla, Pune</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">NDVI Health</div>
+          <div class="stat-value">0.72</div>
+          <div class="stat-sub">Moderate — green</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Rain Forecast</div>
+          <div class="stat-value">14mm</div>
+          <div class="stat-sub">Next 3 days</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Crop Prediction</div>
+          <div class="stat-value">Rice</div>
+          <div class="stat-sub">Model confidence 91%</div>
+        </div>
+      </div>
+
+      <!-- Chart placeholder -->
+      <div class="chart-placeholder">
+        <h3>NDVI Over Time</h3>
+        <p>Vegetation index trend — Field 1 (Gat 1204)</p>
+        <div class="chart-bar-area">
+          <div class="bar" style="height:40%"></div>
+          <div class="bar" style="height:55%"></div>
+          <div class="bar" style="height:60%"></div>
+          <div class="bar" style="height:72%"></div>
+          <div class="bar active" style="height:78%"></div>
+          <div class="bar" style="height:65%"></div>
+          <div class="bar" style="height:70%"></div>
+          <div class="bar" style="height:82%"></div>
+          <div class="bar" style="height:75%"></div>
+          <div class="bar active" style="height:88%"></div>
+          <div class="bar" style="height:80%"></div>
+          <div class="bar" style="height:72%"></div>
+        </div>
+      </div>
+
+      <!-- WIP sections -->
+      <div class="chart-placeholder">
+        <h3>Satellite Map</h3>
+        <p>Live Sentinel-2 field view</p>
+        <div class="wip-inline">
+          🛰️ &nbsp; Satellite layer integration — in progress
+        </div>
+      </div>
+
+      <div class="chart-placeholder">
+        <h3>Weather + Soil Sensor Feed</h3>
+        <p>Real-time telemetry from IoT nodes</p>
+        <div class="wip-inline">
+          ⚙️ &nbsp; Sensor API connection — in progress
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

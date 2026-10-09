@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guardian — Geospatial Agricultural Intelligence & Crop Protection</title>
+  <meta name="description" content="Guardian is an advanced AI and satellite-powered crop monitoring, geospatial disaster recovery, and agricultural insurance platform for farmers and officials across Maharashtra.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" href="logo.png">
+
+  <!-- Modern Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            guardian: {
+              cyan: '#00D2FF',
+              emerald: '#10B981',
+              dark: '#090C15',
+              card: '#111622',
+              surface: '#151C2C',
+              border: 'rgba(255, 255, 255, 0.08)',
+              borderHover: 'rgba(0, 210, 255, 0.35)',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            mono: ['"Space Grotesk"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --accent: #00D2FF;
+      --accent-glow: rgba(0, 210, 255, 0.25);
+      --emerald: #10B981;
+      --bg: #090C15;
+    }
+    body {
+      background-color: var(--bg);
+      color: #f1f5f9;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    /* Subtle mesh ambient background */
+    .bg-grid-pattern {
+      background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+    
+    .glass-pill {
+      background: rgba(17, 22, 34, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    }
+
+    .glass-card {
+      background: rgba(17, 22, 34, 0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .glass-card:hover {
+      border-color: rgba(0, 210, 255, 0.35);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 210, 255, 0.1);
+      transform: translateY(-2px);
+    }
+
+    /* Hero video treatment */
+    .hero-video-container {
+      position: relative;
+      min-height: 100vh;
+      min-height: 100dvh;
+      overflow: hidden;
+    }
+    .hero-video-container video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.45;
+    }
+    .hero-vignette {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 40%, rgba(9, 12, 21, 0.4) 0%, rgba(9, 12, 21, 0.85) 70%, rgba(9, 12, 21, 1) 100%),
+                  linear-gradient(to bottom, rgba(9, 12, 21, 0.5) 0%, transparent 40%, rgba(9, 12, 21, 0.95) 85%, #090C15 100%);
+    }
+
+    /* Radar sweep animation */
+    @keyframes radarPulse {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.15); opacity: 0.2; }
+      100% { transform: scale(0.95); opacity: 0.8; }
+    }
+    .radar-pulse {
+      animation: radarPulse 2.4s ease-in-out infinite;
+    }
+
+    /* Smooth glow */
+    .accent-gradient-text {
+      background: linear-gradient(135deg, #ffffff 30%, #00D2FF 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .emerald-gradient-text {
+      background: linear-gradient(135deg, #10B981 0%, #00D2FF 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+
+<body class="selection:bg-[#00D2FF] selection:text-black">
+
+  <!-- ── Floating Navigation Pill ── -->
+  <header class="fixed top-0 left-0 right-0 z-50 flex justify-center pt-4 px-3 sm:px-6 pointer-events-none">
+    <nav class="glass-pill rounded-full px-4 sm:px-7 py-3 flex items-center justify-between sm:justify-center gap-4 sm:gap-7 pointer-events-auto w-full max-w-5xl transition-all duration-300">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-2.5 text-white no-underline group">
+        <img src="logo.svg" onerror="this.src='logo.png'" alt="Guardian" class="h-8 sm:h-9 w-auto object-contain transition-transform duration-200 group-hover:scale-105">
+      </a>
+
+      <!-- Desktop Links -->
+      <div class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
+        <a href="#overview" class="hover:text-white transition-colors duration-200">Overview</a>
+        <a href="#capabilities" class="hover:text-white transition-colors duration-200">Capabilities</a>
+        <a href="#workflow" class="hover:text-white transition-colors duration-200">Workflow</a>
+        <a href="services.html" class="hover:text-white transition-colors duration-200">Services</a>
+        <a href="#faq" class="hover:text-white transition-colors duration-200">FAQ</a>
+      </div>
+
+      <div class="hidden sm:block w-px h-4 bg-white/15"></div>
+
+      <!-- Actions -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <a href="login.html" class="text-xs sm:text-sm font-medium text-slate-200 px-3.5 py-1.5 rounded-full hover:text-white hover:bg-white/10 transition-all duration-200">
+          Sign In
+        </a>
+        <a href="get-started.html" class="text-xs sm:text-sm font-semibold text-black bg-[#00D2FF] hover:bg-[#38bdf8] px-4 sm:px-5 py-2 rounded-full transition-all duration-200 shadow-md hover:shadow-[#00D2FF]/20 hover:scale-[1.02]">
+          Get Started
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ── Hero Section ── -->
+  <section class="hero-video-container flex items-center justify-center relative">
+    <video autoplay muted loop playsinline poster="farm.jpg">
+      <source src="farmvideo.mp4" type="video/mp4">
+    </video>
+    <div class="hero-vignette"></div>
+
+    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 pt-32 pb-20 text-center flex flex-col items-center">
+      
+      <!-- Live Satellite Status Beacon -->
+      <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/[0.06] border border-white/15 backdrop-blur-md mb-8 hover:border-[#00D2FF]/40 transition-colors">
+        <span class="relative flex h-2.5 w-2.5">
+          <span class="radar-pulse absolute inline-flex h-full w-full rounded-full bg-[#00D2FF] opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#10B981]"></span>
+        </span>
+        <span class="text-[11px] sm:text-xs font-mono font-medium tracking-wide uppercase text-slate-300">
+          Sentinel-1 SAR &amp; Sentinel-2 MSI Active &bull; Maharashtra Region
+        </span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white mb-6 leading-[1.1] max-w-4xl">
+        Geospatial Agricultural <br class="hidden sm:inline">
+        <span class="emerald-gradient-text">Intelligence</span> &amp; Crop Protection
+      </h1>
+
+      <!-- Subheadline -->
+      <p class="text-base sm:text-xl text-slate-300 max-w-2xl mb-10 font-normal leading-relaxed">
+        Guardian fuses European Space Agency radar imagery, multi-spectral NDVI health analytics, and Maharashtra land records to protect farmers, expedite insurance, and verify damage in seconds.
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+        <a href="get-started.html" class="w-full sm:w-auto flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-full bg-[#00D2FF] text-black font-semibold text-base hover:bg-[#38bdf8] transition-all duration-200 shadow-lg shadow-[#00D2FF]/20 hover:scale-105">
+          <span>Start Free Today</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+        </a>
+
+        <a href="/dashboard/dist/" class="w-full sm:w-auto flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white/[0.08] hover:bg-white/[0.14] text-white border border-white/15 font-medium text-base transition-all duration-200 backdrop-blur-sm">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#00D2FF]"><rect width="7" height="9" x="3" y="3" rx="1"></rect><rect width="7" height="5" x="14" y="3" rx="1"></rect><rect width="7" height="9" x="14" y="12" rx="1"></rect><rect width="7" height="5" x="3" y="16" rx="1"></rect></svg>
+          <span>Live Dashboard</span>
+        </a>
+
+        <a href="#capabilities" class="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3.5 rounded-full text-slate-400 hover:text-white font-medium text-sm transition-colors">
+          <span>Explore Capabilities &darr;</span>
+        </a>
+      </div>
+
+      <!-- Quick Metrics Ribbon -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mt-16 sm:mt-20 w-full max-w-4xl text-left">
+        <div class="glass-card rounded-2xl p-4 sm:p-5">
+          <div class="text-2xl sm:text-3xl font-bold font-mono text-white mb-1">4,301+</div>
+          <div class="text-xs text-slate-400 font-medium">Parcels Monitored</div>
+        </div>
+        <div class="glass-card rounded-2xl p-4 sm:p-5">
+          <div class="text-2xl sm:text-3xl font-bold font-mono text-[#00D2FF] mb-1">10 Meter</div>
+          <div class="text-xs text-slate-400 font-medium">Multi-Spectral Resolution</div>
+        </div>
+        <div class="glass-card rounded-2xl p-4 sm:p-5">
+          <div class="text-2xl sm:text-3xl font-bold font-mono text-[#10B981] mb-1">97.4%</div>
+          <div class="text-xs text-slate-400 font-medium">Disaster Detection Accuracy</div>
+        </div>
+        <div class="glass-card rounded-2xl p-4 sm:p-5">
+          <div class="text-2xl sm:text-3xl font-bold font-mono text-white mb-1">36</div>
+          <div class="text-xs text-slate-400 font-medium">Districts Supported</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Platform Overview ── -->
+  <section id="overview" class="py-24 relative bg-grid-pattern border-t border-white/[0.06]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-xs font-mono font-semibold uppercase tracking-widest text-[#00D2FF] mb-3">Enterprise Agriculture Platform</h2>
+        <h3 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight mb-5">
+          Bridging Orbit, Ground Truth, and Agricultural Relief
+        </h3>
+        <p class="text-slate-400 text-base sm:text-lg">
+          Guardian eliminates bureaucratic bottlenecks in crop surveys by providing transparent, satellite-backed proof for farmers, local governance, and state revenue departments.
+        </p>
+      </div>
+
+      <!-- Feature Split Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Card 1 -->
+        <div class="glass-card rounded-3xl p-8 flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-[#00D2FF]/10 border border-[#00D2FF]/30 flex items-center justify-center text-[#00D2FF] mb-6">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><circle cx="12" cy="12" r="3"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 14.83 4.24 4.24"/></svg>
+            </div>
+            <h4 class="text-xl font-bold text-white mb-3">For Cultivators &amp; Farmers</h4>
+            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+              Register your land with your Gat or Plot Number, access real-time NDVI vegetation health indices, and file automated crop loss claims with tamper-proof geotagged evidence.
+            </p>
+          </div>
+          <ul class="text-xs text-slate-300 space-y-2 border-t border-white/[0.08] pt-4">
+            <li class="flex items-center gap-2">
+              <span class="text-[#10B981]">✓</span> Instant 7/12 &amp; 8-A boundary mapping
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-[#10B981]">✓</span> Real-time PMFBY insurance claim tracker
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-[#10B981]">✓</span> Bilingual Raya AI advisor (Marathi / English)
+            </li>
+          </ul>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="glass-card rounded-3xl p-8 flex flex-col justify-between border-[#00D2FF]/20 bg-gradient-to-b from-[#00D2FF]/[0.03] to-transparent">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-[#10B981]/10 border border-[#10B981]/30 flex items-center justify-center text-[#10B981] mb-6">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"/><path d="M9 9h1"/><path d="M9 13h1"/><path d="M9 17h1"/><path d="M14 9h1"/><path d="M14 13h1"/><path d="M14 17h1"/></svg>
+            </div>
+            <h4 class="text-xl font-bold text-white mb-3">For Gram Panchayats</h4>
+            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+              Review village-level crop health heatmaps, verify claims logged by local farmers with spatial transparency, and endorse genuine disaster cases directly to revenue authorities.
+            </p>
+          </div>
+          <ul class="text-xs text-slate-300 space-y-2 border-t border-white/[0.08] pt-4">
+            <li class="flex items-center gap-2">
+              <span class="text-[#10B981]">✓</span> Village-wide disaster damage heatmaps
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-[#10B981]">✓</span> Single-click digital endorsement
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-[#10B981]">✓</span> Objective radar-backed loss percentage
+            </li>
+          </ul>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="glass-card rounded-3xl p-8 flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 mb-6">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            </div>
+            <h4 class="text-xl font-bold text-white mb-3">For Talathis &amp; Officials</h4>
+            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+              Eliminate disputes with immutable satellite audit logs. Correlate field officer geotagged photos against Sentinel multi-spectral timelines for seamless compensation signoff.
+            </p>
+          </div>
+          <ul class="text-xs text-slate-300 space-y-2 border-t border-white/[0.08] pt-4">
+            <li class="flex items-center gap-2">
+              <span class="text-[#10B981]">✓</span> Revenue department record matching
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-[#10B981]">✓</span> Cloud-penetrating SAR radar verification
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-[#10B981]">✓</span> Digitally signed inspection reports
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Core Capabilities ── -->
+  <section id="capabilities" class="py-24 bg-gradient-to-b from-[#090C15] via-[#0E1322] to-[#090C15] border-t border-white/[0.06]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div>
+          <h2 class="text-xs font-mono font-semibold uppercase tracking-widest text-[#00D2FF] mb-3">Deep Tech Capabilities</h2>
+          <h3 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+            Comprehensive Space-Borne Intelligence
+          </h3>
+        </div>
+        <a href="services.html" class="inline-flex items-center gap-2 text-sm font-semibold text-[#00D2FF] hover:underline">
+          View all specialized services &rarr;
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Cap 1 -->
+        <div class="glass-card rounded-2xl p-7">
+          <div class="flex items-center justify-between mb-5">
+            <span class="text-2xl"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></span>
+            <span class="text-[11px] font-mono font-semibold px-2.5 py-1 rounded-md bg-[#10B981]/10 text-[#10B981] border border-[#10B981]/20">Sentinel-2</span>
+          </div>
+          <h4 class="text-lg font-bold text-white mb-2">NDVI Vegetation Health Tracking</h4>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Measures chlorophyll absorption across near-infrared and red bands. Identifies moisture stress, pest degradation, and vegetative decline before visible to the naked eye.
+          </p>
+        </div>
+
+        <!-- Cap 2 -->
+        <div class="glass-card rounded-2xl p-7">
+          <div class="flex items-center justify-between mb-5">
+            <span class="text-2xl"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14 0M8.5 16a6 6 0 0 1 7 0M12 20h.01M1.4 9a16 16 0 0 1 21.2 0"/></svg></span>
+            <span class="text-[11px] font-mono font-semibold px-2.5 py-1 rounded-md bg-[#00D2FF]/10 text-[#00D2FF] border border-[#00D2FF]/20">Sentinel-1 SAR</span>
+          </div>
+          <h4 class="text-lg font-bold text-white mb-2">All-Weather SAR Radar Imaging</h4>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Synthetic Aperture Radar pierces dense monsoon cloud covers, torrential rainfall, and night skies to pinpoint flood extents, waterlogged tracts, and severe hail damage.
+          </p>
+        </div>
+
+        <!-- Cap 3 -->
+        <div class="glass-card rounded-2xl p-7">
+          <div class="flex items-center justify-between mb-5">
+            <span class="text-2xl"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6v16l7-4 8 4 7-4V2l-7 4-8-4z"/><path d="M8 2v16M16 6v16"/></svg></span>
+            <span class="text-[11px] font-mono font-semibold px-2.5 py-1 rounded-md bg-sky-500/10 text-sky-400 border border-sky-500/20">GIS Engine</span>
+          </div>
+          <h4 class="text-lg font-bold text-white mb-2">Cadastral Boundary Mapping</h4>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Native indexing of Maharashtra land records down to the Gat number. Visualizes field geometries with Esri World Imagery overlays and interactive polygon inspectors.
+          </p>
+        </div>
+
+        <!-- Cap 4 -->
+        <div class="glass-card rounded-2xl p-7">
+          <div class="flex items-center justify-between mb-5">
+            <span class="text-2xl"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg></span>
+            <span class="text-[11px] font-mono font-semibold px-2.5 py-1 rounded-md bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">PMFBY Engine</span>
+          </div>
+          <h4 class="text-lg font-bold text-white mb-2">Automated Claim Triage</h4>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Replaces weeks of bureaucratic paperwork with instant geospatial damage calculations. Calculates payout benchmarks in accordance with national crop insurance rules.
+          </p>
+        </div>
+
+        <!-- Cap 5 -->
+        <div class="glass-card rounded-2xl p-7">
+          <div class="flex items-center justify-between mb-5">
+            <span class="text-2xl"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></svg></span>
+            <span class="text-[11px] font-mono font-semibold px-2.5 py-1 rounded-md bg-[#00D2FF]/10 text-[#00D2FF] border border-[#00D2FF]/20">Raya AI</span>
+          </div>
+          <h4 class="text-lg font-bold text-white mb-2">Bilingual Voice &amp; Chat Copilot</h4>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Raya assists in Marathi and English with weather warnings, soil advisories, PMFBY claim steps, and land registration guidance, available 24/7 across mobile and desktop.
+          </p>
+        </div>
+
+        <!-- Cap 6 -->
+        <div class="glass-card rounded-2xl p-7">
+          <div class="flex items-center justify-between mb-5">
+            <span class="text-2xl"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></span>
+            <span class="text-[11px] font-mono font-semibold px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">GPS Proof</span>
+          </div>
+          <h4 class="text-lg font-bold text-white mb-2">Tamper-Proof Geotagged Photos</h4>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            In-app camera module embeds live latitude, longitude, compass heading, Gat ID, and timestamp watermarks directly into image frames for fraud-proof evidence.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── 3-Step Workflow ── -->
+  <section id="workflow" class="py-24 border-t border-white/[0.06] relative">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <h2 class="text-xs font-mono font-semibold uppercase tracking-widest text-[#00D2FF] mb-3">How Guardian Operates</h2>
+        <h3 class="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4">
+          From Field Registration to Direct Relief
+        </h3>
+        <p class="text-slate-400 text-base">
+          A streamlined 3-step digital bridge between cultivators, satellites, and relief authorities.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+        
+        <!-- Step 1 -->
+        <div class="glass-card rounded-3xl p-8 relative">
+          <div class="text-6xl font-mono font-extrabold text-white/5 mb-4">01</div>
+          <h4 class="text-xl font-bold text-white mb-3">Register Land &amp; Crop</h4>
+          <p class="text-slate-400 text-sm leading-relaxed mb-6">
+            Input your Maharashtra Plot Number. Guardian matches cadastral GIS records, renders field boundaries, and loads crop profiles (Sugarcane, Cotton, Soybean, Onion, etc.).
+          </p>
+          <div class="inline-flex items-center gap-2 text-xs font-mono text-[#00D2FF]">
+            <span>Time required: ~60 seconds</span>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="glass-card rounded-3xl p-8 relative border-[#00D2FF]/20">
+          <div class="text-6xl font-mono font-extrabold text-[#00D2FF]/10 mb-4">02</div>
+          <h4 class="text-xl font-bold text-white mb-3">Continuous Orbit Scan</h4>
+          <p class="text-slate-400 text-sm leading-relaxed mb-6">
+            Sentinel-1 and Sentinel-2 satellites orbit every 5-12 days. Guardian computes historical vs. current vegetation reflectance and detects abrupt anomalies.
+          </p>
+          <div class="inline-flex items-center gap-2 text-xs font-mono text-[#10B981]">
+            <span>Automated 15-day rolling window</span>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="glass-card rounded-3xl p-8 relative">
+          <div class="text-6xl font-mono font-extrabold text-white/5 mb-4">03</div>
+          <h4 class="text-xl font-bold text-white mb-3">Verified Relief &amp; Payouts</h4>
+          <p class="text-slate-400 text-sm leading-relaxed mb-6">
+            When disaster strikes, file an instant claim. Gram Panchayat and Talathi view the verified satellite evidence and approve compensations with total transparency.
+          </p>
+          <div class="inline-flex items-center gap-2 text-xs font-mono text-slate-300">
+            <span>Direct insurance settlement</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Interactive FAQ Accordion ── -->
+  <section id="faq" class="py-24 bg-gradient-to-b from-[#090C15] to-[#0E1322] border-t border-white/[0.06]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center mb-16">
+        <h2 class="text-xs font-mono font-semibold uppercase tracking-widest text-[#00D2FF] mb-3">Questions &amp; Answers</h2>
+        <h3 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+          Frequently Asked Questions
+        </h3>
+      </div>
+
+      <div class="space-y-4" id="faq-accordion">
+        
+        <!-- FAQ 1 -->
+        <div class="glass-card rounded-2xl overflow-hidden border border-white/10">
+          <button class="w-full text-left px-6 py-5 flex items-center justify-between gap-4 font-semibold text-white hover:text-[#00D2FF] transition-colors" onclick="toggleFaq(this)">
+            <span>How does Guardian detect crop damage when it is heavily clouded or raining?</span>
+            <span class="transform transition-transform text-[#00D2FF] font-mono text-xl">+</span>
+          </button>
+          <div class="px-6 pb-6 text-sm text-slate-400 leading-relaxed hidden">
+            Guardian utilizes Sentinel-1 Synthetic Aperture Radar (SAR) sensors. Unlike optical cameras, radar pulses penetrate clouds, rainstorms, and fog effortlessly, reflecting off surface water and soil texture to gauge unseasonal inundation and crop lodging.
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="glass-card rounded-2xl overflow-hidden border border-white/10">
+          <button class="w-full text-left px-6 py-5 flex items-center justify-between gap-4 font-semibold text-white hover:text-[#00D2FF] transition-colors" onclick="toggleFaq(this)">
+            <span>Can farmers use Guardian on their mobile phones?</span>
+            <span class="transform transition-transform text-[#00D2FF] font-mono text-xl">+</span>
+          </button>
+          <div class="px-6 pb-6 text-sm text-slate-400 leading-relaxed hidden">
+            Yes! Guardian is fully responsive and optimized for mobile devices. Farmers can register, monitor crop health, speak with Raya in Marathi or English, and take geotagged camera photos directly from any mobile browser.
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="glass-card rounded-2xl overflow-hidden border border-white/10">
+          <button class="w-full text-left px-6 py-5 flex items-center justify-between gap-4 font-semibold text-white hover:text-[#00D2FF] transition-colors" onclick="toggleFaq(this)">
+            <span>How does the Gram Panchayat and Talathi verification flow work?</span>
+            <span class="transform transition-transform text-[#00D2FF] font-mono text-xl">+</span>
+          </button>
+          <div class="px-6 pb-6 text-sm text-slate-400 leading-relaxed hidden">
+            When a farmer logs a damage claim, it immediately populates the Gram Panchayat portal. The local official inspects the satellite diff score and endorses the case. Next, the Talathi cross-verifies revenue records and signs off on the official claim docket.
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="glass-card rounded-2xl overflow-hidden border border-white/10">
+          <button class="w-full text-left px-6 py-5 flex items-center justify-between gap-4 font-semibold text-white hover:text-[#00D2FF] transition-colors" onclick="toggleFaq(this)">
+            <span>Which districts and regions in Maharashtra are currently indexed?</span>
+            <span class="transform transition-transform text-[#00D2FF] font-mono text-xl">+</span>
+          </button>
+          <div class="px-6 pb-6 text-sm text-slate-400 leading-relaxed hidden">
+            Guardian provides village-level cadastral and satellite tracking across all 36 districts of Maharashtra, including Pune, Haveli, Nashik, Kolhapur, Solapur, Ahmednagar, Latur, and Nagpur, with complete 7/12 land record integration.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Bottom CTA Banner ── -->
+  <section class="py-20 relative overflow-hidden border-t border-white/[0.08]">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
+      <div class="glass-card rounded-3xl p-8 sm:p-14 text-center border-[#00D2FF]/20 relative overflow-hidden bg-gradient-to-b from-white/[0.04] to-transparent">
+        
+        <div class="max-w-2xl mx-auto">
+          <h3 class="text-3xl sm:text-5xl font-bold text-white mb-5 tracking-tight">
+            Ready to Protect Your Agricultural Assets?
+          </h3>
+          <p class="text-slate-300 text-base sm:text-lg mb-8 leading-relaxed">
+            Join thousands of cultivators, village councils, and agricultural officials transforming crop monitoring across India with Guardian.
+          </p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="get-started.html" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-[#00D2FF] text-black font-semibold text-base hover:bg-[#38bdf8] transition-all duration-200 shadow-lg shadow-[#00D2FF]/20 hover:scale-105">
+              Create Your Free Account
+            </a>
+            <a href="login.html" class="w-full sm:w-auto px-7 py-3.5 rounded-full bg-white/10 hover:bg-white/15 text-white font-medium text-base transition-colors">
+              Sign In to Guardian
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Modern Footer ── -->
+  <footer class="bg-[#060810] border-t border-white/[0.08] py-14">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-10 mb-12">
+        
+        <!-- Brand Col -->
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-3 mb-4">
+            <img src="logo.svg" onerror="this.src='logo.png'" alt="Guardian" class="h-9 w-auto">
+          </div>
+          <p class="text-slate-400 text-sm leading-relaxed max-w-sm mb-6">
+            Autonomous geospatial intelligence, Sentinel-1/2 multi-spectral Earth observation, and AI-driven agricultural disaster recovery for Maharashtra.
+          </p>
+          <div class="text-xs font-mono text-slate-500">
+            Powered by Google Earth Engine &amp; ESA Copernicus
+          </div>
+        </div>
+
+        <!-- Navigation Col -->
+        <div>
+          <h4 class="text-xs font-mono font-semibold uppercase tracking-wider text-slate-300 mb-4">Platform</h4>
+          <ul class="space-y-2.5 text-sm text-slate-400">
+            <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+            <li><a href="services.html" class="hover:text-white transition-colors">Services</a></li>
+            <li><a href="/dashboard/dist/" class="hover:text-white transition-colors">Live Dashboard</a></li>
+            <li><a href="get-started.html" class="hover:text-white transition-colors">Register Land</a></li>
+          </ul>
+        </div>
+
+        <!-- Portals Col -->
+        <div>
+          <h4 class="text-xs font-mono font-semibold uppercase tracking-wider text-slate-300 mb-4">Portals</h4>
+          <ul class="space-y-2.5 text-sm text-slate-400">
+            <li><a href="login.html" class="hover:text-white transition-colors">Farmer Login</a></li>
+            <li><a href="login.html" class="hover:text-white transition-colors">Gram Panchayat</a></li>
+            <li><a href="login.html" class="hover:text-white transition-colors">Talathi Portal</a></li>
+            <li><a href="/dashboard/dist/#/satellite" class="hover:text-white transition-colors">Disaster Radar</a></li>
+          </ul>
+        </div>
+
+        <!-- Technology Col -->
+        <div>
+          <h4 class="text-xs font-mono font-semibold uppercase tracking-wider text-slate-300 mb-4">Intelligence</h4>
+          <ul class="space-y-2.5 text-sm text-slate-400">
+            <li><span class="hover:text-white">Sentinel-1 SAR Radar</span></li>
+            <li><span class="hover:text-white">Sentinel-2 NDVI Spectral</span></li>
+            <li><span class="hover:text-white">Maharashtra Cadastral GIS</span></li>
+            <li><span class="hover:text-white">Raya AI Assistant</span></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="pt-8 border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div>
+          &copy; 2026 Guardian. All rights reserved. Geospatial Crop Survey &amp; Protection System.
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="#" class="hover:text-slate-300 transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-slate-300 transition-colors">Terms of Service</a>
+          <a href="#" class="hover:text-slate-300 transition-colors">Security</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Interactive Accordion Script -->
+  <script>
+    function toggleFaq(button) {
+      const content = button.nextElementSibling;
+      const icon = button.querySelector('span:last-child');
+      const isHidden = content.classList.contains('hidden');
+      
+      // Close all other open accordion panels
+      document.querySelectorAll('#faq-accordion > div').forEach(item => {
+        const body = item.querySelector('div:last-child');
+        const sign = item.querySelector('button span:last-child');
+        if (body && body !== content) {
+          body.classList.add('hidden');
+          if (sign) sign.textContent = '+';
+        }
+      });
+
+      if (isHidden) {
+        content.classList.remove('hidden');
+        icon.textContent = '−';
+      } else {
+        content.classList.add('hidden');
+        icon.textContent = '+';
+      }
+    }
+  </script>
+
+</body>
+</html>
