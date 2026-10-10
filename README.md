@@ -503,5 +503,5 @@ Open your browser and navigate to `http://localhost:5173`.
 
 ---
 
-Designed and developed for agricultural resilience and disaster risk reduction.
-# Fusion_2026
+Designed and developed by team Lazy Loopers for agricultural resilience and disaster risk reduction.
+# Fusion 2026
